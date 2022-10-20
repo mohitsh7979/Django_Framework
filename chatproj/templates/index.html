@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        
+        <textarea rows="20" cols="50"></textarea><br>
+        <input type="text"><br>
+        <button>Submit</button>
+    </form>
+    {{group_name | json_script:"group-name"}}
+    <script>
+        const grpname=JSON.parse(document.getElementById("group-name").textContent)
+        console.log(grpname)
+        // var ws=new WebSocket('ws://127.0.0.1:8080/ws/ac/')
+        var ws=new WebSocket(
+            'ws://'+window.location.host+'/ws/sc/'+grpname+'/'
+        )
+        ws.onopen=function(){
+            console.log('connecting...')
+            // ws.send('Hii i am form client')
+        }
+        ws.onmessage=function(event){
+            console.log('Message Received....',event)
+            console.log('Message Received....',event.data)
+            let a=JSON.parse(event.data)
+            console.log(a.msg)
+            document.querySelector('textarea').value+=a.msg+'\n';
+
+        }
+        ws.onerror=function(){
+            console.log('error.....')
+        }
+        ws.onclose=function(){
+            console.log('connection closed....')
+        }
+
+        document.querySelector('button').onclick=function(event){
+            event.preventDefault()
+           let message= document.querySelector('input').value;
+        //    document.querySelector('textarea').innerHTML=message
+           ws.send(JSON.stringify({
+            'msg':message
+           }))
+           message.value=''
+        }
+    </script>
+</body>
+</html>

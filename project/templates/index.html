@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Websocket page</h1>
+    <h2 id="m"></h2>
+    <form>
+        <textarea rows="10" cols="50"></textarea><br>
+        <input type="text" name="" id=""><br>
+        <button>Send</button>
+        
+    </form>
+    <script>
+        let ws=new WebSocket('ws://127.0.0.1:8000/ws/sc/')
+        ws.onopen=function(event){
+            console.log("websocket connecting.....",event)
+            document.querySelector("button").onclick=function(event){
+                // let a=document.querySelector("textarea").value;
+                let a=document.querySelector("input").value;
+                event.preventDefault()
+                document.querySelector("textarea").innerHTML=a
+                // ws.send("Hi,message from client..")
+                ws.send(a)
+
+            }
+        }
+        ws.onmessage=function(event){
+            console.log("Messagee Received....",event.data)
+            // let c=document.createElement("h2");
+            // c.innerHTML=event.data;
+            // document.body.appendChild(c)
+            let c=JSON.parse(event.data)
+            console.log(c)
+            document.getElementById("m").innerText=c.count
+        }
+        ws.onerror=function(event){
+            console.log("Message error...",event)
+        }
+        ws.onclose=function(event){
+            console.log("Connection closed...",event)
+        }
+
+        // ws.addEventListener('open',()=>{
+        //     console.log("websocket connecting.....")
+        //     ws.send("Hi,message from client..")
+        // })
+    </script>
+</body>
+</html>
