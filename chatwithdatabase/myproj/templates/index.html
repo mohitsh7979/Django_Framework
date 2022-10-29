@@ -10,7 +10,16 @@
     <h1>Group name : {{group_name}}</h1>
     <form>
         
-        <textarea rows="20" cols="50" id="area"></textarea><br>
+        <textarea rows="20" cols="50" id="area">
+       {% for i in chats %}
+       {{request.user}}
+       {{i.times}} 
+       {{i.content}}
+       
+            
+            
+            {% endfor %}
+        </textarea><br>
         <input type="text"><br>
         <button>Submit</button>
     </form>
