@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for i in collect %}
+     Name :{{i.name}} <br><br>
+     Skill:{{i.skill}} <br><br>
+     Address:{{i.address}} <br><br>
+     work:{{i.work_experience}} <br><br>
+     projects:{{i.projects}} <br><br>
+     certificates:{{i.certificates}}<br><br>
+     languages:{{i.language}}<br><br>
+      intrests:{{i.intrests}}<br><br>
+
+      <br><br>
+    {% endfor %}
+</body>
+</html>

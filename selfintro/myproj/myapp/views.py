@@ -9,6 +9,7 @@ def myform(request):
         a=details(request.POST)
         if a.is_valid():
             name=a.cleaned_data['name']
+            fname=a.cleaned_data['fname']
             skill=a.cleaned_data['skill']
             address=a.cleaned_data['address']
             work=a.cleaned_data['work_experience']
@@ -16,7 +17,12 @@ def myform(request):
             certificates=a.cleaned_data['certificates']
             language=a.cleaned_data['language']
             intrests=a.cleaned_data['intrests']
-            user=Resume(name=name,skill=skill,address=address, work_experience=work,projects=projects,certificates=certificates,language=language,intrests=intrests)
+            mobile=a.cleaned_data['mobile']
+            objective=a.cleaned_data['objective']
+            email=a.cleaned_data['Email_id']
+            dob=a.cleaned_data['dob']
+            user=Resume(name=name,skill=skill,address=address, work_experience=work,projects=projects,certificates=certificates,language=language,intrests=intrests,
+            fname=fname,mobile_no=mobile,objective=objective,email=email,Dob=dob)
             user.save()
             return HttpResponse('your details succefull added')
 

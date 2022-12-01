@@ -1,24 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    {% for i in collect %}
-     Name :{{i.name}} <br><br>
-     Skill:{{i.skill}} <br><br>
-     Address:{{i.address}} <br><br>
-     work:{{i.work_experience}} <br><br>
-     projects:{{i.projects}} <br><br>
-     certificates:{{i.certificates}}<br><br>
-     languages:{{i.language}}<br><br>
-      intrests:{{i.intrests}}<br><br>
+    <title>Css Grid</title>
+    <style>
+        .container {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fit , minmax(400px,0.5fr));;
 
-      <br><br>
+
+
+
+        }
+
+        .item {
+            border: 2px solid black;
+            background-color: salmon;
+
+        }
+
+        #navbar {
+            grid-column-start: 1;
+            grid-column-end: 4;
+
+            padding: 50px;
+            text-align: center;
+        }
+
+        #section {
+            grid-row-start: 2;
+            grid-row-end: 50;
+        }
+
+        #aside {
+            grid-row-start: 2;
+            grid-row-end: 50;
+            grid-column-start: 2;
+            grid-column-end: 4;
+
+        }
+    </style>
+</head>
+
+<body>
+     
+     {% for i in collect %}
+    
+    <div class="container">
+        <div id="navbar" class="item">
+            <h1>{{i.name}}</h1>
+        </div>
+        <div id="section" class="item">
+            <ul>Image
+                <li><img src="/media/{{i.image}}" height="100px" width="100px"></li>
+            </ul>
+            <ul>D.O.B :
+                <li>{{i.Dob}}</li>
+            </ul>
+            <ul>Address :
+                <li>{{i.address}}</li>
+            </ul>
+            <ul>Father Name :
+                <li>{{i.fname}}</li>
+            </ul>
+            <ul>Mobile No :
+                <li>{{i.mobile_no}}</li>
+            </ul>
+            <ul>Email id :
+                <li>{{i.email}}</li>
+            </ul>
+        </div>
+        <div id="aside" class="item">
+            <ul>Objective :<li>{{i.objective}}</li>
+            </ul>
+            <ul>Experience :<li>{{i.work_experience}}</li>
+            </ul>
+            <ul>Skills :<li>{{i.skill}}</li>
+            </ul>
+            <ul>Projects :<li>{{i.projects}}</li>
+            </ul>
+            <ul>Certificates :<li>{{i.certificates}}</li>
+            </ul>
+            <ul>Interst :<li>{{i.intrests}}</li>
+            </ul>
+            <ul>Language :<li>{{i.language}}</li>
+            </ul>
+        </div>
+
+    </div>
     {% endfor %}
 </body>
+
 </html>
