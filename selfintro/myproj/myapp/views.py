@@ -1,7 +1,9 @@
 from django.shortcuts import render,HttpResponse
 from .forms import *
 from .models import *
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate,login,logout
+from .forms import *
 
 
 def myform(request):
@@ -43,3 +45,40 @@ def resume(request):
 
 
 # Create your views here.
+
+def user(request):
+    if request.method=="POST":
+        a=myuser(request.POST)
+        if a.is_valid():
+            a.save()
+            return HttpResponse("Your account succefull created !")
+    else:
+     a=myuser()
+    context={
+        'a':a
+    }
+    return render(request,'usercreate.html',context)
+
+def loginhandle(request):
+    if request.method=="POST":
+        b=AuthenticationForm(request=request, data=request.POST)
+        if b.is_valid():
+            myuser=b.cleaned_data['username']
+            print(myuser)
+            psd=b.cleaned_data['password']
+            print(psd)
+            user=authenticate(username=myuser,password=psd)
+            if user is not None:
+                login(request,user)
+                return HttpResponse("you are successfull login")
+    else:
+           
+     b=AuthenticationForm()
+    context={
+        'b':b
+    }
+    return render(request,'login.html',context)
+
+def logouthandle(request):
+    logout(request)
+    return render(request,'index.html')

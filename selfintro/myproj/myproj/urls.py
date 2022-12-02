@@ -23,4 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.myform),
     path('resume/',views.resume),
+    path('user/',views.user),
+    path('login/',views.loginhandle),
+    path('logout/',views.logouthandle),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
