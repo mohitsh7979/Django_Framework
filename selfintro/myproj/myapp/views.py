@@ -30,7 +30,8 @@ def myform(request):
 
     else:
 
-     a=details()
+     a=details(auto_id="mohit",label_suffix="-",initial={'name':'Rohit'})
+     a.order_fields(field_order=['Email_id','name'])
     context={
         'a':a
     }

@@ -3,4 +3,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def header(request):
-    return render(request,'mainapp/base.html')
+    return render(request,'mainapp/productslider.html')
