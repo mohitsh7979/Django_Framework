@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'mainapp/style1.css' %}">
+    <style>
+
+        .order{
+            background-color: #ff523b;
+            
+            float:right;
+            width: 350px;
+            height: 35px;
+            border: none;
+            border-radius: 18px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            
+            
+
+        }
+
+        .order:hover{
+            cursor: pointer;
+            background-color: #bb6e64;
+        }
+    </style>
+</head>
+<body>
+    <div class="small-conatiner cart-page">
+        <table>
+           <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+            </tr>
+            {% for cart in showcart %}
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="/media/{{cart.product.images}}" alt="">
+                        <div>
+                            <p>{{cart.product.title}}</p>
+                            <small>Price:{{cart.product.price}}</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>${{cart.product.price}}.00</td>
+            </tr>
+            {% endfor %}
+
+            {% comment %} <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="kids1.webp" alt="">
+                        <div>
+                            <p>Red Printed T-shirt</p>
+                            <small>Price:50.00</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$50.00</td>
+            </tr> {% endcomment %}
+
+            {% comment %} <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="kids1.webp" alt="">
+                        <div>
+                            <p>Red Printed T-shirt</p>
+                            <small>Price:50.00</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>$50.00</td>
+            </tr> {% endcomment %}
+        </table>
+
+        <div class="total_price">
+
+            <table>
+                <tr>
+                    <td>Subtoal</td>
+                    <td>${{amount}}</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>$70.00</td>
+                </tr>
+                <tr>
+                    <td>Toal</td>
+                    <td>${{total_amount}}</td>
+                </tr>
+            </table>
+        </div>
+        
+                    <div >
+                       <form action="">
+
+                        <button class="order">Confirm Order</button>
+
+                       </form>
+                       
+                    </div>
+    </div>
+</body>
+</html>
