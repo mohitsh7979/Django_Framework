@@ -10,5 +10,9 @@ urlpatterns = [
     path('productview/<int:id>',views.productview),
     path('addcart/',views.addcart),
     path('showcart/',views.showcart),
+    path('checkout/',views.checkout),
+    path('paymentdone/',views.Orderplaced)
+  
+    
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

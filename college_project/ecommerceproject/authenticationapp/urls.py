@@ -6,6 +6,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('Customer/',views.Customer)
+    path('Customer/',views.Customer_details),
+    path('Register/',views.register),
+    path('login/',views.loginhandle),
+    path('profile/',views.profile_page)
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

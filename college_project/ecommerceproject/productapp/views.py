@@ -1,5 +1,6 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from .models import *
+from authenticationapp.models import Customer
 
 # Create your views here.
 
@@ -63,3 +64,30 @@ def showcart(request):
 
     
     return render(request,'productapp/cart.html',context)
+
+
+
+def checkout(request):
+    user=request.user
+    a=Cart.objects.filter(user=user)
+    b=Customer.objects.filter(user=user)
+    print(a)
+    print(b)
+    context={
+        'a':a,
+        'b':b
+    }
+
+    return render(request,'productapp/checkout.html',context)
+
+
+def paymentdone(request):
+    usr=request.user
+    customer=Customer.objects.filter(user=usr)
+    print(customer)
+    cart=Cart.objects.filter(user=usr)
+
+    for c in cart:
+        Orderplaced(user=usr,customer=customer,product=c.product,quantity=c.quantity)
+        c.delete()
+    return HttpResponse("Your order successfully ordered")
