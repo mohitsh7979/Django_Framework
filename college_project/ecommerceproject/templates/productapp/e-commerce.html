@@ -14,6 +14,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        /* .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        } */
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            /* min-width: 60px; */
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            /* margin-right: 50px; */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        /* .dropdown:hover .dropbtn {
+            
+        } */
+           
+       
+    </style>
 </head>
 
 <body>
@@ -36,11 +88,19 @@
                         <li><a href="">Products</a></li>
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
-                        <li><a href="">Account</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropbtn">Account</a>
+                            <div class="dropdown-content">
+                                <a href="/auth/Register/">Register </a>
+                                <a href="/auth/login/">Login</a>
+                                
+
+                            </div>
+                        </li>
                     </ul>
                 </nav>
-                <i class="fa-solid fa-cart-shopping cart"></i>
-                <i class="fa-solid fa-bars menu"></i>
+                <a href=""><i class="fa-solid fa-cart-shopping cart"></i></a>
+                <a href=""><i class="fa-solid fa-bars menu"></i></a>
             </div>
             <div class="row" id="row">
                 <div class="col-2" style="font-family: cursive;">
@@ -98,7 +158,7 @@
             <div class="row">
             {% for i in featuredproduct %}
             <div class="col-4">
-                <a href="/auth/productview/{{i.id}}">
+                <a href="/productview/{{i.id}}">
                 <img src="/media/{{i.images}}" alt="" class="col4-img">
                 <h4>{{i.title}}</h4>
                 <p>${{i.price}}.00</p>
@@ -118,7 +178,7 @@
         <div class="row">
             {% for j in latestproduct %}
             <div class="col-4">
-                <a href="/auth/productview/{{j.id}}">
+                <a href="/productview/{{j.id}}">
                 <img src="/media/{{j.images}}" alt="" class="col4-img">
                 <h4>{{j.title}}</h4>
                 <p>${{j.price}}.00</p>

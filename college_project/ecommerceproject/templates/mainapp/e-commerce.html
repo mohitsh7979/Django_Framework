@@ -14,6 +14,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        /* .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        } */
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            /* min-width: 60px; */
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            /* margin-right: 50px; */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        /* .dropdown:hover .dropbtn {
+            
+        } */
+           
+       
+    </style>
 </head>
 
 <body>
@@ -29,10 +81,18 @@
                         <li><a href="">Products</a></li>
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
-                        <li><a href="">Account</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropbtn">Account</a>
+                            <div class="dropdown-content">
+                                <a href="">Register </a>
+                                <a href="">Login</a>
+                                
+
+                            </div>
+                        </li>
                     </ul>
                 </nav>
-                
+
                 <a href=""><i class="fa-solid fa-cart-shopping cart"></i></a>
                 <a href=""><i class="fa-solid fa-bars menu"></i></a>
             </div>
@@ -66,126 +126,34 @@
     <div class="categories">
         <div class="small-container">
             <div class="row">
-               
+
                 <div class="col-3">
                     <img src="https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?w=2000"
                         alt="" class="col3-img" height="300px">
                 </div>
                 <div class="col-3">
-                    <img src="https://i.ytimg.com/vi/II0cF9hFQ_g/maxresdefault.jpg" alt="" class="col3-img" height="300px";>
+                    <img src="https://i.ytimg.com/vi/II0cF9hFQ_g/maxresdefault.jpg" alt="" class="col3-img"
+                        height="300px" ;>
                 </div>
                 <div class="col-3">
-                    <img src="https://spingtree.com/wp-content/uploads/2018/07/banner-ecom.png" alt="solid=" col3-img" height="300px">
+                    <img src="https://spingtree.com/wp-content/uploads/2018/07/banner-ecom.png" alt="solid=" col3-img"
+                        height="300px">
                 </div>
             </div>
         </div>
     </div>
- 
+
 
 
 
 
     <!-- features product--------------- -->
-     <a href="">
-    <div class="small-container">
-        <h2 class="title">Featured Products</h2>
-        <div class="row">
-            <div class="col-4">
-                <img src="tops1.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col-4">
-                <img src="tops2.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col-4">
-                <img src="tops3.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col-4">
-                <img src="tops6.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-        </div>
-    
-        <h2 class="title">Latest Product</h2>
-        <div class="row">
-            <div class="col-4">
-                <img src="boysjeans1.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col-4">
-                <img src="boysshirt1.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col-4">
-                <img src="boysshirt2.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col-4">
-                <img src="boyt-shirt1.webp" alt="" class="col4-img">
-                <h4>Trimmer</h4>
-                <p>$50.00</p>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-
+    <a href="">
+        <div class="small-container">
+            <h2 class="title">Featured Products</h2>
             <div class="row">
                 <div class="col-4">
-                    <img src="boysjeans2.webp" alt="" class="col4-img">
+                    <img src="tops1.webp" alt="" class="col4-img">
                     <h4>Trimmer</h4>
                     <p>$50.00</p>
                     <div class="rating">
@@ -196,7 +164,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <img src="boysjeans3.webp" alt="" class="col4-img">
+                    <img src="tops2.webp" alt="" class="col4-img">
                     <h4>Trimmer</h4>
                     <p>$50.00</p>
                     <div class="rating">
@@ -207,7 +175,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <img src="boyt-shirt2.webp" alt="" class="col4-img">
+                    <img src="tops3.webp" alt="" class="col4-img">
                     <h4>Trimmer</h4>
                     <p>$50.00</p>
                     <div class="rating">
@@ -218,7 +186,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <img src="boyt-shirt3.webp" alt="" class="col4-img">
+                    <img src="tops6.webp" alt="" class="col4-img">
                     <h4>Trimmer</h4>
                     <p>$50.00</p>
                     <div class="rating">
@@ -229,10 +197,104 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
-</a>
+            <h2 class="title">Latest Product</h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="boysjeans1.webp" alt="" class="col4-img">
+                    <h4>Trimmer</h4>
+                    <p>$50.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img src="boysshirt1.webp" alt="" class="col4-img">
+                    <h4>Trimmer</h4>
+                    <p>$50.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img src="boysshirt2.webp" alt="" class="col4-img">
+                    <h4>Trimmer</h4>
+                    <p>$50.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img src="boyt-shirt1.webp" alt="" class="col4-img">
+                    <h4>Trimmer</h4>
+                    <p>$50.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <img src="boysjeans2.webp" alt="" class="col4-img">
+                        <h4>Trimmer</h4>
+                        <p>$50.00</p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <img src="boysjeans3.webp" alt="" class="col4-img">
+                        <h4>Trimmer</h4>
+                        <p>$50.00</p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <img src="boyt-shirt2.webp" alt="" class="col4-img">
+                        <h4>Trimmer</h4>
+                        <p>$50.00</p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <img src="boyt-shirt3.webp" alt="" class="col4-img">
+                        <h4>Trimmer</h4>
+                        <p>$50.00</p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </a>
 
 
     <!-- ---------------offers--------------- -->
@@ -270,7 +332,8 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1568316674077-d72ee56de61c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"  alt="">
+                    <img src="https://images.unsplash.com/photo-1568316674077-d72ee56de61c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+                        alt="">
                     <h3>Mohit Sharma</h3>
                 </div>
 
@@ -284,7 +347,8 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <img src="https://userscontent2.emaze.com/images/2f25a968-add0-4ebc-8623-450ba9c12179/d281440e-06ff-48b3-8bc8-b64c2d8a5e29.png" alt="">
+                    <img src="https://userscontent2.emaze.com/images/2f25a968-add0-4ebc-8623-450ba9c12179/d281440e-06ff-48b3-8bc8-b64c2d8a5e29.png"
+                        alt="">
                     <h3>Mohit Sharma</h3>
                 </div>
 
@@ -298,7 +362,8 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                    <img src="https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                        alt="">
                     <h3>Mohit Sharma</h3>
                 </div>
             </div>
@@ -311,7 +376,7 @@
     <div class="brands">
         <div class="small-container">
             <div class="row">
-                
+
                 <div class="col-5">
                     <img src="naaptol-logo.jpg" alt="">
                 </div>

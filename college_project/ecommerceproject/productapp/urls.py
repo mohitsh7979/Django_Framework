@@ -6,12 +6,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('product/',views.product),
+    path('',views.product),
     path('productview/<int:id>',views.productview),
     path('addcart/',views.addcart),
     path('showcart/',views.showcart),
     path('checkout/',views.checkout),
-    path('paymentdone/',views.Orderplaced)
+    path('paymentdone/',views.Orderplaced),
+    path('header/',views.header),
   
     
 

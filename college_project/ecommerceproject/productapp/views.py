@@ -30,7 +30,7 @@ def addcart(request):
         prod=Product.objects.get(id=product_id)
         cart=Cart(user=user,product=prod)
         cart.save()
-    return redirect('/auth/showcart')
+    return redirect('/showcart')
 
 
 def showcart(request):
@@ -91,3 +91,7 @@ def paymentdone(request):
         Orderplaced(user=usr,customer=customer,product=c.product,quantity=c.quantity)
         c.delete()
     return HttpResponse("Your order successfully ordered")
+
+
+def header(request):
+    return render(request,'productapp/headerandfooter.html')
