@@ -60,10 +60,17 @@ def showcart(request):
                 'total_amount':total_amount,
                 'showcart':showcart
             }
+            return render(request,'productapp/cart.html',context)
+    else:
+        return render(request,'productapp/emptycart.html',context)
     print(cart_product)
 
+
     
-    return render(request,'productapp/cart.html',context)
+    # return render(request,'productapp/cart.html',context)
+
+    
+
 
 
 
@@ -95,3 +102,25 @@ def paymentdone(request):
 
 def header(request):
     return render(request,'productapp/headerandfooter.html')
+
+
+def men(request):
+    return render(request,'productapp/men.html')
+
+def women(request):
+    return render(request,'productapp/women.html')
+
+def kids(request):
+    return render(request,'productapp/kids.html')
+
+def productdelete(request,id):
+    # product=Cart.objects.all()
+    # print(product)
+    # for i in product:
+    #     print(i.id)
+    product=Cart.objects.get(id=id)
+    print(product)
+    product.delete()
+
+    return redirect("/showcart/")
+    # return render(request,'productapp/kids.html')

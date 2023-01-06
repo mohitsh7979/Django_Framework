@@ -28,6 +28,7 @@
         .dropdown {
             position: relative;
             display: inline-block;
+            text-align: center;
         }
 
         /* Dropdown Content (Hidden by Default) */
@@ -63,7 +64,83 @@
         /* .dropdown:hover .dropbtn {
             
         } */
-           
+        
+        .footer {
+            background-color:rgb(31, 29, 29);
+            color: whitesmoke;
+            border: 2px solid black;
+            height: 400px;
+            margin-top:200px;
+        }
+
+        .container1 {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+        }
+
+        .box {
+
+            /* border: 2px solid whitesmoke; */
+            height: 300px;
+            width: 200px;
+            margin-top: 100px;
+            margin-left: 50px;
+            text-align: center;
+        }
+
+        @media (max-width:1386px) {
+            .container1 {
+
+                display: grid;
+
+                /* background-color: red; */
+            }
+
+            .box{
+                /* margin-left: 150px; */
+                /* width: 80vw; */
+                grid-column-start: 1;
+                grid-column-end: 4;
+            }
+
+            .footer{
+                height: 100%;
+            }
+
+            #box1{
+                width: 250px;
+            }
+
+        
+        }
+
+      
+
+        #box1{
+            width: 400px;
+        }
+
+        .box ul li{
+            list-style: none;
+            margin-right: 50px;
+            margin-top: 10px;
+            
+        }
+
+        #box1 img{
+            width: 200px;
+            margin-top:30px;
+        }
+
+        #box1 h3{
+            font-size: 30px;
+        }
+
+        .box a{
+            text-decoration: none;
+            color: white;
+        }
+
        
     </style>
 </head>
@@ -85,7 +162,16 @@
                 <nav>
                     <ul>
                         <li><a href="">Home</a></li>
-                        <li><a href="">Products</a></li>
+                        <li class="dropdown">
+                            <a href="">Products</a>
+                            
+                            <div class="dropdown-content">
+                                <a href="/men/">Men</a>
+                                <a href="/women/">Women</a>
+                                <a href="/kids/">kids</a>
+                            </div>
+                        
+                        </li>
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
                         <li class="dropdown">
@@ -99,7 +185,7 @@
                         </li>
                     </ul>
                 </nav>
-                <a href=""><i class="fa-solid fa-cart-shopping cart"></i></a>
+                <a href="/showcart/"><i class="fa-solid fa-cart-shopping cart"></i></a>
                 <a href=""><i class="fa-solid fa-bars menu"></i></a>
             </div>
             <div class="row" id="row">
@@ -301,7 +387,7 @@
 
     <!-- ------------------------footer------------------- -->
 
-    <div class="footer">
+    {% comment %} <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col-1">
@@ -338,6 +424,45 @@
             <hr>
             <p class="copyright">Copyright 2020 - Easy Tutorials</p>
         </div>
+    </div> {% endcomment %}
+
+    <div class="footer">
+        <div class="container1">
+            <div class="box" id="box1">
+                <h3>Download our App</h3>
+                <img src="{% static 'mainapp/downloadlogo.jpeg' %}" alt="">
+                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam laborum deleniti architecto iure minima amet itaque adipisci hic temporibus magni, tempora eum. Quam nobis est nesciunt, possimus blanditiis facilis obcaecati asperiores nostrum odio autem molestias reiciendis, dicta odit voluptatum nulla ad dolorum delectus porro esse ratione tenetur rem. Quam, voluptas! -->
+            </div>
+            <div class="box" id="box2">
+                <h3>Useful link</h3>
+                <ul>
+                    <a href=""><li>lorem1</li></a>
+                    <a href=""><li>lorem2</li></a>
+                    <a href=""><li>lorem3</li></a>
+                    <a href=""><li>lorem4</li></a>
+                </ul>
+            </div>
+            <div class="box" id="box3">
+                <h3>follow us</h3>
+                <ul>
+                    <a href=""><li>Instagram</li></a>
+                    <a href=""><li>Facebook</li></a>
+                    <a href=""><li>Twiter</li>
+                    <a href=""><li>Whatsapp</li></a>
+                </ul>
+            </div>
+            <div class="box" id="box4">
+                <h3>Section</h3>
+                <ul>
+                    <a href=""><li>Home</li></a>
+                    <a href=""><li>Features</li></a>
+                    <a href=""><li>Pricing</li></a>
+                    <a href=""><li>Faq</li></a>
+                </ul>
+            </div>
+        </div>
+    
+    
     </div>
 
     <script src="script.js"></script>

@@ -1,8 +1,9 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .forms import *
 from .models import *
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 # from .forms import Customer
 
 # Create your views here.
@@ -39,8 +40,10 @@ def register(request):
     if request.method=="POST":
         a=Register(request.POST)
         if a.is_valid():
+            messages.success(request,'congratulations!! your account succefully created')
             a.save()
-            return HttpResponse("your account is created")
+            # return HttpResponse("your account is created")
+            return redirect("/auth/Customer/")
     else:
      a=Register()
     print(a)
@@ -52,26 +55,11 @@ def register(request):
 
 def loginhandle(request):
 
-      if request.method=="POST":
-        # a=AuthenticationForm(request=request,data=request.POST)
-        # if a.is_valid():
-            uname=request.POST['username']
-            pas=request.POST['password']
-            print(uname)
-            print(pas)
-            user=authenticate(username=uname,password=pas)
-
-            if user is not None:
-                login(request,user)
-            
-      return render(request,'authenticationapp/login.html')
-      
-
-    # if request.method=="POST":
-    #     a=AuthenticationForm(request=request,data=request.POST)
-    #     if a.is_valid():
-    #         uname=a.cleaned_data['username']
-    #         pas=a.cleaned_data['password']
+    #   if request.method=="POST":
+    #     # a=AuthenticationForm(request=request,data=request.POST)
+    #     # if a.is_valid():
+    #         uname=request.POST['username']
+    #         pas=request.POST['password']
     #         print(uname)
     #         print(pas)
     #         user=authenticate(username=uname,password=pas)
@@ -79,14 +67,31 @@ def loginhandle(request):
     #         if user is not None:
     #             login(request,user)
             
-    #         return HttpResponse("your are succefull login")
-    # else:
-    #  a=AuthenticationForm()
+    #   return render(request,'authenticationapp/login.html')
+      
+
+    if request.method=="POST":
+        a=AuthenticationForm(request=request,data=request.POST)
+        if a.is_valid():
+            uname=a.cleaned_data['username']
+            pas=a.cleaned_data['password']
+            print(uname)
+            print(pas)
+            user=authenticate(username=uname,password=pas)
+
+            if user is not None:
+                login(request,user)
+            
+            return HttpResponse("your are succefull login")
+    else:
+     a=AuthenticationForm()
      
     
-    # context={
-    #     'a':a
-    #     }
+    context={
+        'a':a
+        }
+    return render(request,'authenticationapp/login.html',context)
+    
     
 
 

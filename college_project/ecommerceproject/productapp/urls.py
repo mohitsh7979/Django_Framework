@@ -13,6 +13,10 @@ urlpatterns = [
     path('checkout/',views.checkout),
     path('paymentdone/',views.Orderplaced),
     path('header/',views.header),
+    path('men/',views.men),
+    path('women/',views.women),
+    path('kids/',views.kids),
+    path('delete/<int:id>/',views.productdelete),
   
     
 

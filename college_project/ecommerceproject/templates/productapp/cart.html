@@ -1,3 +1,5 @@
+{% extends 'productapp/headerandfooter.html' %}
+{% block login %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -46,7 +48,12 @@
                         <div>
                             <p>{{cart.product.title}}</p>
                             <small>Price:{{cart.product.price}}</small>
-                            <a href="">Remove</a>
+                            <a href="/delete/{{cart.id}}/" type="submit">Remove</a>
+
+                            <!-- <form action="/delete/{{cart.product.id}}/">
+                                <input type="hidden" value="{{cart.product.id}}">
+                                <button type="submit">Remove</button>
+                            </form> -->
                         </div>
                     </div>
                 </td>
@@ -115,3 +122,4 @@
     </div>
 </body>
 </html>
+{% endblock login %}
