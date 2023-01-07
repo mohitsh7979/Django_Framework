@@ -18,12 +18,22 @@ CATEGORY_CHOICES=(
     ('ban','banner'),
 )
 
+BRAND_CHOICES=(
+    ('p','paint'),
+    ('j','jeans'),
+    ('t','t-shirt'),
+    ('s','shirt'),
+    ('T','toper')
+  
+)
+
 
 class Product(models.Model):
     title=models.CharField(max_length=100)
     price=models.IntegerField()
     desc=models.CharField(max_length=1000)
     catagory=models.CharField(choices=CATEGORY_CHOICES,max_length=50)
+    brand=models.CharField(choices=BRAND_CHOICES,max_length=50,default=1)
     images=models.ImageField(upload_to='media/productimages')
 
     def __str__(self):

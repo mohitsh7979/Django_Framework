@@ -82,7 +82,7 @@ def loginhandle(request):
             if user is not None:
                 login(request,user)
             
-            return HttpResponse("your are succefull login")
+            return redirect("/")
     else:
      a=AuthenticationForm()
      
@@ -97,3 +97,7 @@ def loginhandle(request):
 
 def profile_page(request):
     return render(request,'authenticationapp/profile.html')
+
+def logouthandle(request):
+    logout(request)
+    return redirect("/")

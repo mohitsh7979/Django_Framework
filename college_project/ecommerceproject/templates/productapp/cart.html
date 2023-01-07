@@ -29,7 +29,20 @@
         .order:hover{
             cursor: pointer;
             background-color: #bb6e64;
+            
         }
+
+
+     
+
+        @media (min-width:100px) and (max-width:650px){
+
+            .order{
+                width: 200px;
+            }
+        }
+
+       
     </style>
 </head>
 <body>
@@ -62,35 +75,6 @@
             </tr>
             {% endfor %}
 
-            {% comment %} <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="kids1.webp" alt="">
-                        <div>
-                            <p>Red Printed T-shirt</p>
-                            <small>Price:50.00</small>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
-            </tr> {% endcomment %}
-
-            {% comment %} <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="kids1.webp" alt="">
-                        <div>
-                            <p>Red Printed T-shirt</p>
-                            <small>Price:50.00</small>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
-            </tr> {% endcomment %}
         </table>
 
         <div class="total_price">

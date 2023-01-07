@@ -27,6 +27,7 @@
       padding: 5px 5px;
 
       font-size: 20px;
+     
 
     }
 
@@ -59,7 +60,8 @@
       margin-top: 10px;
       margin-right: 20px;
       font-size: 20px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      display:inline-block;
     }
 
 
@@ -77,6 +79,7 @@
       padding: 10px 10px;
       color: #ff523b;
     }
+
 
     /* -----------------footer----------------- */
 
@@ -156,6 +159,47 @@
             color: white;
         }
 
+
+        {% comment %} --------------------Dropdown-------------- {% endcomment %}
+
+        /* The container <div> - needed to position the dropdown content */
+          .dropdown {
+              position: relative;
+              display: inline-block;
+              text-align: center;
+          }
+  
+          /* Dropdown Content (Hidden by Default) */
+          .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #f9f9f9;
+              /* min-width: 60px; */
+              box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+              z-index: 1;
+          }
+  
+          /* Links inside the dropdown */
+          .dropdown-content a {
+              color: black;
+              /* margin-right: 50px; */
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+          }
+  
+          /* Change color of dropdown links on hover */
+          .dropdown-content a:hover {
+              background-color: #fb5b46;
+              color: white;
+          }
+  
+          /* Show the dropdown menu on hover */
+          .dropdown:hover .dropdown-content {
+              display: block;
+          }
+  
+
   </style>
 </head>
 
@@ -169,7 +213,7 @@
       <img src="{% static 'mainapp/logo1.png' %}" alt="" class="img">
     </div>
 
-    <div>
+    <div class="hover">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/men/">Men</a></li>
@@ -180,12 +224,32 @@
 
     {% if user.is_authenticated %}
     <div class="user">
-      <p>Welcome {{request.user}}</p> <a href=""><i class="fa-regular fa-user font"></i></a>
+      {% comment %} <p>Welcome {{request.user}}</p> <a href=""><i class="fa-regular fa-user font"></i></a> {% endcomment %}
+      <p>Welcome {{request.user}}</p> 
+      <li class="dropdown">
+        <a href=""><i class="fa-regular fa-user font"></i></a>
+        
+        <div class="dropdown-content">
+            <a href="/auth/logout/">Logout</a>
+            <a href="/women/">Order</a>
+            
+        </div>
+    
+    </li>
       <a href="/showcart/"><i class="fa-solid fa-cart-shopping cart font"></i></a>
     </div>
     {% else %}
     <div class="user">
-      <a href=""><i class="fa-regular fa-user font"></i></a>
+      <li class="dropdown">
+        <a href=""><i class="fa-regular fa-user font"></i></a>
+        
+        <div class="dropdown-content">
+            <a href="/auth/login/">Login</a>
+            <a href="/auth/Register/">Register</a>
+            
+        </div>
+    
+    </li>
       <a href="/auth/login/"><i class="fa-solid fa-cart-shopping cart font"></i></a>
     </div>
     {% endif %}

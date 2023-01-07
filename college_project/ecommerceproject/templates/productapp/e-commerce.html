@@ -141,6 +141,14 @@
             color: white;
         }
 
+        .fa-regular{
+
+        }
+
+        #dropdown2{
+            font-size: 22px;
+        }
+
        
     </style>
 </head>
@@ -185,8 +193,22 @@
                         </li>
                     </ul>
                 </nav>
+                {% if user.is_authenticated %}
+                <li class="dropdown" id="dropdown1">
+                  <a href=""><i class="fa-regular fa-user cart"></i></a>
+                  
+                  <div class="dropdown-content" id="dropdown2">
+                      <a href="/auth/logout/">Logout</a>
+                      <a href="/women/">Order</a>
+                      
+                  </div>
+              
+              </li>
                 <a href="/showcart/"><i class="fa-solid fa-cart-shopping cart"></i></a>
-                <a href=""><i class="fa-solid fa-bars menu"></i></a>
+                {% else %}
+                <a href="/auth/login/"><i class="fa-solid fa-cart-shopping cart"></i></a>
+                {% endif %}
+                {% comment %} <a href=""><i class="fa-solid fa-bars menu"></i></a> {% endcomment %}
             </div>
             <div class="row" id="row">
                 <div class="col-2" style="font-family: cursive;">

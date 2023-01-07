@@ -1,17 +1,150 @@
 {% extends 'productapp/headerandfooter.html' %}
 
 {% block login %}
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- </head>
- <body>
-    <center><h1>Women Product</h1></center>
- </body>
- </html>
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+        .flex-container {
+          display: flex;
+          
+        }
+        .flex-item {
+          border: 2px solid black;
+          height: 100vh;
+          width: 300px;
+          margin: 10px;
+        }
+        
+        #itme-2 {
+          flex-grow: 2;
+        }
+        
+        .mencart {
+          border: 1px solid red;
+        }
+        
+        .allcart {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 10px;
+        }
+        
+        .mencart {
+          margin: 10px 1%;
+          width: 23%;
+          text-align: center;
+        }
 
-{% endblock login %}
+      
+      </style>
+    </head>
+    <body>
+      <center>
+        <h1>Women Product</h1>
+      </center>
+      <div class="flex-container">
+        <div class="flex-item" id="itme-1"></div>
+
+        <div class="flex-item" id="itme-2">
+          <div class="allcart">
+            <div class="mencart">
+              <div class="productcart" id="productimg">
+                <img src="https://images.meesho.com/images/products/194792884/fi9rg_512.webp" alt="" width="200px" height="300px" />
+              </div>
+              <hr />
+              <div class="productcart" id="productdetails">
+                <p class="title">Jeans 1</p>
+                <h3 class="price">Rs.500</h3>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+
+            <div class="mencart">
+              <div class="productcart" id="productimg">
+                <img src="https://images.meesho.com/images/products/194792884/fi9rg_512.webp" alt="" width="200px" height="300px" />
+              </div>
+              <hr />
+              <div class="productcart" id="productdetails">
+                <p class="title">Jeans 1</p>
+                <h3 class="price">Rs.500</h3>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+
+            <div class="mencart">
+              <div class="productcart" id="productimg">
+                <img src="https://images.meesho.com/images/products/194792884/fi9rg_512.webp" alt="" width="200px" height="300px" />
+              </div>
+              <hr />
+              <div class="productcart" id="productdetails">
+                <p class="title">Jeans 1</p>
+                <h3 class="price">Rs.500</h3>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+
+            <div class="mencart">
+              <div class="productcart" id="productimg">
+                <img src="https://images.meesho.com/images/products/194792884/fi9rg_512.webp" alt="" width="200px" height="300px" />
+              </div>
+              <hr />
+              <div class="productcart" id="productdetails">
+                <p class="title">Jeans 1</p>
+                <h3 class="price">Rs.500</h3>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+
+            <div class="mencart">
+              <div class="productcart" id="productimg">
+                <img src="https://images.meesho.com/images/products/194792884/fi9rg_512.webp" alt="" width="200px" height="300px" />
+              </div>
+              <hr />
+              <div class="productcart" id="productdetails">
+                <p class="title">Jeans 1</p>
+                <h3 class="price">Rs.500</h3>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+
+            <div class="mencart">
+               <div class="productcart" id="productimg">
+                 <img src="https://images.meesho.com/images/products/194792884/fi9rg_512.webp" alt="" width="200px" height="300px" />
+               </div>
+               <hr />
+               <div class="productcart" id="productdetails">
+                 <p class="title">Jeans 1</p>
+                 <h3 class="price">Rs.500</h3>
+                 <i class="fa-regular fa-star"></i>
+                 <i class="fa-regular fa-star"></i>
+                 <i class="fa-regular fa-star"></i>
+                 <i class="fa-regular fa-star"></i>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+{% endblock %}
