@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            display: flex;
+        }
+
+        .flex-item{
+            height: 1000px;
+            width: 1000px;
+            border: 2px solid black;
+
+        }
+
+        .flex-item table tr th{
+            border: 2px solid black;
+        }
+
+        .flex-item table tr td{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">
+            
+        </div>
+        <div class="flex-item">
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Delete</th>
+                </tr>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.skill}}</td>4
+                    <td><a href="/delete/{{i.name}}/">delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

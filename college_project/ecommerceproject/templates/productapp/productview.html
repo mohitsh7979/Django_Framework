@@ -36,20 +36,20 @@
             <p>{{a.desc}}</p> <br>
             <h4>Rs.{{a.price}}<small class="fw-light text-decoration-line-through">15999</small></h4> <br>
             
-            {% if user.is_authenticated %}
+            {% comment %} {% if user.is_authenticated %}
             <form action="/addcart/"class="d-inline" method="post">
               {% csrf_token %}
               <input type="hidden" name="prod_id" value="{{a.id}}" id="prod_id">
               <button type="submit" class="btn btn-primary shadow px-5 py-2 cart-color">Add to Cart</button>
             </form>
             {% else %}
+            
+            {% endif %} {% endcomment %}
             <form action="/auth/login/"class="d-inline" method="post">
               {% csrf_token %}
               <input type="hidden" name="prod_id" value="{{a.id}}" id="prod_id">
               <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
             </form>
-
-            {% endif %}
             {% comment %} <a href="/addtocart" name="prod_id" value="{{product.id}}" class="btn btn-primary shadow px-5 py-2">Add to Cart</a> {% endcomment %}
             <a href="" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
             <h5 class="mt-5">Available Offers</h5>

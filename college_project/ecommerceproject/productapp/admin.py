@@ -11,4 +11,10 @@ class CartAdmin(admin.ModelAdmin):
     list_display=['id','user','product','quantity']
 
 
+@admin.register(Orderplaced)
+class OrderplacedAdmin(admin.ModelAdmin):
+    list_display=['id','user','customer','product','quantity']
+
+
+
 

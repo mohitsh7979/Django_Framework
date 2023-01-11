@@ -17,14 +17,12 @@ def Customer_details(request):
             print(usr)
             first_name=a.cleaned_data['First_name']
             last_name=a.cleaned_data['last_name']
-            email=a.cleaned_data['Email_id']
             address=a.cleaned_data['address']
-            land=a.cleaned_data['land_mark']
             state=a.cleaned_data['State']
             city=a.cleaned_data['City']
             pin=a.cleaned_data['pin_code']
             mobile=a.cleaned_data['Mobile_no']
-            m=Customer(user=usr,First_name=first_name,last_name=last_name,Email_id=email,address=address,land_mark=land,State=state,City=city,pin_code=pin,Mobile_no=mobile)
+            m=Customer(user=usr,First_name=first_name,last_name=last_name,address=address,State=state,City=city,pin_code=pin,Mobile_no=mobile)
             m.save()
             return HttpResponse("your account is created")
     else:

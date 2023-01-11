@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>todo list</title>
+    <style>
+      .flex-container {
+        display: flex;
+      }
+      
+      .flex-item {
+        height: 1000px;
+        width: 1000px;
+        border: 2px solid black;
+      }
+      
+      .flex-item table tr th {
+        border: 2px solid black;
+      }
+      .flex-item table tr td {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <h1>My todo list</h1>
+    </center>
+    <div class="flex-container">
+      <div class="flex-item">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for f in myform %}
+            {{ f.label_tag }}{{ f }}{{ f.errors|striptags }} <br /> <br />
+          {% endfor %}
+          <button>Submit</button>
+        </form>
+      </div>
+      <div class="flex-item">
+        <table>
+          <tr>
+            {% comment %} <th>id</th> {% endcomment %}
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Delete</th>
+            <th>Add</th>
+          </tr>
+          {% for i in data %}
+            <tr>
+              {% comment %} <td>{{ i.id }}</td> {% endcomment %}
+              <td>{{ i.name }}</td>
+              <td>{{ i.email }}</td>
+              <td>{{ i.course }}</td>
+              <td>
+                <a href="/delete/{{i.id}}/">delete</a>
+              </td>
+              <td>
+                <a href="/updatelist/{{i.id}}">update</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+		<br>
+		
+		  <input type="text" value="">
+		  <button id="btn">Search</button>
+		
+	</div>
+</div> 
+
+
+  </body>
+</html>

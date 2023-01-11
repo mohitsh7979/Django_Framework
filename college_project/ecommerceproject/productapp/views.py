@@ -37,18 +37,19 @@ def addcart(request):
 
 
 def showcart(request):
-    user = request.user
-    showcart = Cart.objects.filter(user=user)
-    context = {
+    if user==request.user:
+     user = request.user
+     showcart = Cart.objects.filter(user=user)
+     context = {
         'showcart': showcart
-    }
+     }
 
-    amount = 0.0
-    total_amount = 0.0
-    tax = 70.0
+     amount = 0.0
+     total_amount = 0.0
+     tax = 70.0
 
-    cart_product = [p for p in Cart.objects.all() if p.user == user]
-    if cart_product:
+     cart_product = [p for p in Cart.objects.all() if p.user == user]
+     if cart_product:
         for p in cart_product:
             # print(p.product.price,'ye proce hain')
             print(p, 'ye only p hain')
@@ -64,9 +65,12 @@ def showcart(request):
                 'showcart': showcart
             }
             return render(request, 'productapp/cart.html', context)
-    else:
+     else:
         return render(request, 'productapp/emptycart.html', context)
-    print(cart_product)
+     print(cart_product)
+    
+    else:
+        return redirect("login")
 
     # return render(request,'productapp/cart.html',context)
 
@@ -87,13 +91,17 @@ def checkout(request):
 
 def paymentdone(request):
     usr = request.user
-    customer = Customer.objects.filter(user=usr)
+    custid=request.GET.get('custid')
+    customer = Customer.objects.get(id=custid)
     print(customer)
     cart = Cart.objects.filter(user=usr)
 
     for c in cart:
+        print(c)
+
         Orderplaced(user=usr, customer=customer,
-                    product=c.product, quantity=c.quantity)
+                    product=c.product, quantity=c.quantity).save()
+                    
         c.delete()
     return HttpResponse("Your order successfully ordered")
 
@@ -121,20 +129,63 @@ def men(request, data=None):
 
     elif data == 'Jeans':
         menproduct = Product.objects.filter(catagory='m').filter(brand='j')
-    
-    elif data=='Paint':
+
+    elif data == 'Paint':
         menproduct = Product.objects.filter(catagory='m').filter(brand='p')
 
     context = {'menproduct': menproduct}
     return render(request, 'productapp/men.html', context)
 
 
-def women(request):
-    return render(request, 'productapp/women.html')
+def women(request, data=None):
+
+    if data == None:
+
+        womenproduct = Product.objects.filter(catagory='w')
+
+    elif data == 'Below':
+        womenproduct = Product.objects.filter(catagory='w').filter(price__lt=500)
+
+    elif data == 'above':
+        womenproduct = Product.objects.filter(catagory='w').filter(price__gt=500)
+
+    elif data == 'shirt':
+        womenproduct = Product.objects.filter(catagory='w').filter(brand='s')
+
+    elif data == 'toper':
+        womenproduct = Product.objects.filter(catagory='w').filter(brand='T')
+
+    elif data == 'Jeans':
+        womenproduct = Product.objects.filter(catagory='w').filter(brand='j')
+
+    # elif data == 'Paint':
+    #     womenproduct = Product.objects.filter(catagory='m').filter(brand='p')
+
+    context = {'womenproduct': womenproduct}
+    return render(request, 'productapp/women.html', context)
 
 
-def kids(request):
-    return render(request, 'productapp/kids.html')
+def kids(request,data=None):
+
+    if data == None:
+
+        kidsproduct = Product.objects.filter(catagory='k')
+
+    elif data == 'Below':
+        kidsproduct = Product.objects.filter(catagory='k').filter(price__lt=500)
+
+    elif data == 'above':
+        kidsproduct = Product.objects.filter(catagory='k').filter(price__gt=500)
+
+    elif data == 'shirt':
+        kidsproduct = Product.objects.filter(catagory='k').filter(brand='s')
+
+    elif data == 'toper':
+        kidsproduct = Product.objects.filter(catagory='k').filter(brand='T')
+
+    elif data == 'Jeans':
+        kidsproduct = Product.objects.filter(catagory='k').filter(brand='j')
+    return render(request, 'productapp/kids.html',{'kidsproduct':kidsproduct})
 
 
 def productdelete(request, id):
@@ -148,3 +199,9 @@ def productdelete(request, id):
 
     return redirect("/showcart/")
     # return render(request,'productapp/kids.html')
+
+def orderdetails(request):
+    return render(request,'')
+
+
+

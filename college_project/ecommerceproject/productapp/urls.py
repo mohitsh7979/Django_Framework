@@ -11,13 +11,16 @@ urlpatterns = [
     path('addcart/',views.addcart),
     path('showcart/',views.showcart),
     path('checkout/',views.checkout),
-    path('paymentdone/',views.Orderplaced),
+    path('paymentdone/',views.paymentdone),
     path('header/',views.header),
     path('men/',views.men),
     path('men/<slug:data>/',views.men),
     path('women/',views.women),
+    path('women/<slug:data>/',views.women),
     path('kids/',views.kids),
+    path('kids/<slug:data>/',views.kids),
     path('delete/<int:id>/',views.productdelete),
+
   
     
 
