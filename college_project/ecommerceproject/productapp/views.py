@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse,HttpResponseRedirect
 from .models import *
 from authenticationapp.models import Customer
 
@@ -37,21 +37,25 @@ def addcart(request):
 
 
 def showcart(request):
-    if user==request.user:
-     user = request.user
-     showcart = Cart.objects.filter(user=user)
-     context = {
+
+    user = request.user
+    showcart = Cart.objects.filter(user=user)
+    print(showcart)
+    context = {
         'showcart': showcart
-     }
+    }
 
-     amount = 0.0
-     total_amount = 0.0
-     tax = 70.0
+    amount = 0.0
+    total_amount = 0.0
+    tax = 70.0
 
-     cart_product = [p for p in Cart.objects.all() if p.user == user]
-     if cart_product:
+    cart_product = [p for p in showcart if p.user == user]
+    print("this is cart_product :", cart_product)
+    if cart_product:
+        print("if cart product :", cart_product)
         for p in cart_product:
-            # print(p.product.price,'ye proce hain')
+            print("This is p :", p)
+
             print(p, 'ye only p hain')
             teampamount = p.product.price
             print('teampamount', teampamount)
@@ -64,15 +68,12 @@ def showcart(request):
                 'total_amount': total_amount,
                 'showcart': showcart
             }
-            return render(request, 'productapp/cart.html', context)
-     else:
-        return render(request, 'productapp/emptycart.html', context)
-     print(cart_product)
-    
+        return render(request, 'productapp/cart.html', context)
     else:
-        return redirect("login")
+        return render(request, 'productapp/emptycart.html', context)
+    print(cart_product)
 
-    # return render(request,'productapp/cart.html',context)
+    return render(request, 'productapp/cart.html', context)
 
 
 def checkout(request):
@@ -91,7 +92,7 @@ def checkout(request):
 
 def paymentdone(request):
     usr = request.user
-    custid=request.GET.get('custid')
+    custid = request.GET.get('custid')
     customer = Customer.objects.get(id=custid)
     print(customer)
     cart = Cart.objects.filter(user=usr)
@@ -101,9 +102,11 @@ def paymentdone(request):
 
         Orderplaced(user=usr, customer=customer,
                     product=c.product, quantity=c.quantity).save()
-                    
+
         c.delete()
-    return HttpResponse("Your order successfully ordered")
+    order_data = Orderplaced.objects.filter(user=usr)
+    print(order_data)
+    return render(request, 'productapp/orderdetails.html', {'order_data': order_data})
 
 
 def header(request):
@@ -144,10 +147,12 @@ def women(request, data=None):
         womenproduct = Product.objects.filter(catagory='w')
 
     elif data == 'Below':
-        womenproduct = Product.objects.filter(catagory='w').filter(price__lt=500)
+        womenproduct = Product.objects.filter(
+            catagory='w').filter(price__lt=500)
 
     elif data == 'above':
-        womenproduct = Product.objects.filter(catagory='w').filter(price__gt=500)
+        womenproduct = Product.objects.filter(
+            catagory='w').filter(price__gt=500)
 
     elif data == 'shirt':
         womenproduct = Product.objects.filter(catagory='w').filter(brand='s')
@@ -165,17 +170,19 @@ def women(request, data=None):
     return render(request, 'productapp/women.html', context)
 
 
-def kids(request,data=None):
+def kids(request, data=None):
 
     if data == None:
 
         kidsproduct = Product.objects.filter(catagory='k')
 
     elif data == 'Below':
-        kidsproduct = Product.objects.filter(catagory='k').filter(price__lt=500)
+        kidsproduct = Product.objects.filter(
+            catagory='k').filter(price__lt=500)
 
     elif data == 'above':
-        kidsproduct = Product.objects.filter(catagory='k').filter(price__gt=500)
+        kidsproduct = Product.objects.filter(
+            catagory='k').filter(price__gt=500)
 
     elif data == 'shirt':
         kidsproduct = Product.objects.filter(catagory='k').filter(brand='s')
@@ -185,7 +192,7 @@ def kids(request,data=None):
 
     elif data == 'Jeans':
         kidsproduct = Product.objects.filter(catagory='k').filter(brand='j')
-    return render(request, 'productapp/kids.html',{'kidsproduct':kidsproduct})
+    return render(request, 'productapp/kids.html', {'kidsproduct': kidsproduct})
 
 
 def productdelete(request, id):
@@ -200,8 +207,8 @@ def productdelete(request, id):
     return redirect("/showcart/")
     # return render(request,'productapp/kids.html')
 
+
 def orderdetails(request):
-    return render(request,'')
-
-
-
+    order_data = Orderplaced.objects.filter(user=request.user)
+    print(order_data)
+    return render(request, 'productapp/orderdetails.html', {'order_data': order_data})

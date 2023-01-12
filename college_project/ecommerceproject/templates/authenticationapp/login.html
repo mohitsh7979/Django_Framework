@@ -8,7 +8,15 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
-      
+      .cart-color{
+        background-color: #ff523b;
+        border: none;
+
+      }
+
+      .cart-color:hover{
+        background-color: #ff523b;
+      }
     </style>  
 </head>
   <body>
@@ -35,11 +43,11 @@
                  {% endfor %}
                </div>
               
-               <small><a href="#">Forgot Password ?</a></small> <br>
-               <input type="submit" class="btn btn-primary mt-4" value="Login">
+               <small><a href="#" style="color: #ff523b;">Forgot Password ?</a></small> <br>
+               <input type="submit" class="btn btn-primary mt-4 cart-color" value="Login">
                <br>
-               <div class="text-center text-primary fw-bold"><small>New to ShoppinglyX ? <a href="/auth/Register/"
-                  class="text-danger">Create an Account</a> </small></div>
+               <div class="text-center text-primary fw-bold"><small style="color: #ff523b;">New to ShoppinglyX ? <a href="/auth/Register/"
+                  class="text-dark">Create an Account</a> </small></div>
               </form>
              </div>
             </div>

@@ -20,6 +20,7 @@ urlpatterns = [
     path('kids/',views.kids),
     path('kids/<slug:data>/',views.kids),
     path('delete/<int:id>/',views.productdelete),
+    path('orderdetails/',views.orderdetails),
 
   
     
