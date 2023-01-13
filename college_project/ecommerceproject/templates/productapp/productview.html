@@ -20,6 +20,54 @@
         background-color: #fd6f50;
         color: white;
       }
+
+      #red-color{
+   
+        background-color: red;
+
+      }
+
+      #black-color{
+
+        background-color: black;
+     
+      }
+
+      #green-color{
+  
+        background-color: green;
+ 
+      }
+
+      #yellow-color{
+   
+        background-color: yellow;
+   
+      }
+
+      #pink-color{
+     
+        background-color: pink;
+    
+      }
+
+      .color-option{
+        display: flex;  
+        margin: 10px;                     
+      }
+      
+      .color{
+        height: 30px;
+        width: 30px;
+        border: 1px solid black;
+        border-radius: 20px;
+        border: none;
+        margin: 5px;
+      }
+
+      .color:hover{
+        cursor: pointer;
+      }
     </style>
 
   </head>
@@ -31,10 +79,18 @@
             <img src="/media/{{a.images}}" alt="" class="img-fluid img-thumbnail">
            </div>
            <div class="col-sm-5 offset-sm-1">
-            <h2>Product Title:{{a.title}}</h2>
+            <h2>{{a.title}} <p id="color-title" style="display:inline-block;"></p></h2>
             <hr>
             <p>{{a.desc}}</p> <br>
             <h4>Rs.{{a.price}}<small class="fw-light text-decoration-line-through">15999</small></h4> <br>
+
+            <div class="color-option">
+              <div class="color"id="red-color"></div>
+              <div class="color"id="black-color"></div>
+              <div class="color"id="green-color"></div>
+              <div class="color"id="yellow-color"></div>
+              <div class="color"id="pink-color"></div>
+            </div>
             
           {% if user.is_authenticated %}
             <form action="/addcart/"class="d-inline" method="post">
@@ -67,12 +123,35 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+     
+    <script>
+      document.querySelector("#red-color").onclick=function(){
+        console.log("This is red color")
+        document.querySelector("#color-title").innerHTML="Red";
+      }
+      document.querySelector("#black-color").onclick=function(){
+        console.log("This is black color")
+        document.querySelector("#color-title").innerHTML="Black";
+      }
+      document.querySelector("#green-color").onclick=function(){
+        console.log("This is green color")
+        document.querySelector("#color-title").innerHTML="Green";
+      }
+      document.querySelector("#yellow-color").onclick=function(){
+        console.log("This is yellow color")
+        document.querySelector("#color-title").innerHTML="yellow";
+      }
+      document.querySelector("#pink-color").onclick=function(){
+        console.log("This is pink color")
+        document.querySelector("#color-title").innerHTML="Pink";
+      }
+    </script>
+  
   </body>
 </html>
+ 
 
 
-</body>
-</html>
 {% endblock productview %}
 
 
