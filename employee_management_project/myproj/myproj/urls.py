@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp import views
+from farmer_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mohit/',views.index),
-    path('list/',views.list)
-]
+    path('',views.farmer),
+    path('updatelist/<int:id>/',views.updatelist),
+    path('update/<int:id>/',views.update),
+    path('delete/<int:id>/',views.delete),
+    path('add/',views.farmer_detail),
+    path('search/',views.farmer)
+    ]

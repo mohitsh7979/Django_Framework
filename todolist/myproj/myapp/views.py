@@ -24,7 +24,7 @@ def list(request):
             return redirect("/")
     else:
 
-        myform = listforms()
+        myform = listforms() 
     return render(request, 'list.html', {'myform': myform, 'data': data})
 
 
@@ -42,7 +42,7 @@ def update(request, id):
         updatedata = listmodel.objects.filter(id=id)
         print(updatedata)
         if data.is_valid():
-            for i in updatedata:
+            for i in updatedata: 
                 i.name = data.cleaned_data['name']
                 i.email = data.cleaned_data['email']
                 i.course = data.cleaned_data['course']

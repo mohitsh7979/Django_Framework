@@ -7,4 +7,4 @@ from .models import Student
 @admin.register(Student)
 
 class studentadmin(admin.ModelAdmin):
-    list_display=['id','name','roll_no','father_name','date','image']
+    list_display=['id','name','roll_no','father_name','date','image']   
