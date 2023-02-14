@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .conatainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .box {
+        height: 500px;
+        width: 500px;
+        
+        margin-top: 100px;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      
+      .input {
+        margin: 10px;
+        padding: 5px;
+      }
+      
+      .input label {
+        margin-bottom: 5px;
+      }
+      
+      .input input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        outline: none;
+      }
+      
+      .input button {
+        width: 100%;
+        padding: 14px 20px;
+        margin: 8px 0px;
+        background-color: rgb(51, 89, 51);
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      input:focus {
+        border: 1px solid rgb(51, 89, 51);
+      }
+
+      .box img{
+
+        height: 500px;
+        width: 500px;
+      }
+
+      .box center h1{
+
+        color:rgb(51, 89, 51);
+        margin-top: 10px;
+       
+      }
+
+     .box form {
+
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="conatainer">
+      <div class="box">
+
+        <img src="{% static 'Entorno-Green-Logo.png'%}" alt="">
+      </div>
+
+      <div class="box" id="box-1">
+        <center><h1>Log In</h1></center>
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="input">{{ a }}</div>
+
+          <div class="input">
+            <button>Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

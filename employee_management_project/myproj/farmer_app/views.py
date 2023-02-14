@@ -89,6 +89,8 @@ def search(request):
         print(a)
         b=Farmer.objects.filter(Name=a)
         print(b)
-    
+
+
+
 
 
