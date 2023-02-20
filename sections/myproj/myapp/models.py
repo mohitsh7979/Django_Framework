@@ -8,4 +8,11 @@ class Student(models.Model):
     father_name=models.CharField(max_length=100)
     date=models.DateTimeField()
     image=models.ImageField(upload_to="media")
-        
+
+    
+
+
+   
+
+    
+            

@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .models import Student
 from .forms import listforms
 
@@ -7,15 +7,15 @@ from .forms import listforms
 
 def index(request):
     a = Student.objects.all()
-
-    # context={
-
-    #     'a':a
-    # }
+    print(a)
+    
     return render(request, 'index.html', {'a': a})
 
 
 def list(request):
+
+    a=Student.objects.all()
+    print(a)
 
     if request.method == "POST":
         b = listforms(data=request.POST)
@@ -28,13 +28,14 @@ def list(request):
             Student(name=name, father_name=father,
                     roll_no=roll_no, date=date).save()
             
-            return HttpResponse("Your data is saved")
+            return redirect("/list/")
     
     else:
 
      b = listforms()
     context = {
-        'b': b
+        'b': b,
+        'a':a
     }
 
     return render(request, 'index.html', context)
