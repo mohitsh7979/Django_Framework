@@ -16,6 +16,7 @@ CATEGORY_CHOICES=(
     ('t','testimonial'),
     ('o','offers'),
     ('ban','banner'),
+    
 )
 
 # BRAND_CHOICES=(
@@ -29,16 +30,18 @@ CATEGORY_CHOICES=(
 
 
 class Product(models.Model):
-    title=models.CharField(max_length=100)
-    price=models.IntegerField()
-    desc=models.CharField(max_length=1000)
-    catagory=models.CharField(choices=CATEGORY_CHOICES,max_length=50)
+    title = models.CharField(max_length=100)
+    price = models.IntegerField()
+    desc = models.CharField(max_length=1000)
+    catagory = models.CharField(choices=CATEGORY_CHOICES,max_length=50)
     # brand=models.CharField(choices=BRAND_CHOICES,max_length=50,default=1)
-    images=models.ImageField(upload_to='media/productimages')
+    images = models.ImageField(upload_to='media/productimages')
+    color = models.CharField(max_length=255, null=True, blank=True)
+    size = models.CharField(max_length=15, null=True, blank=True)
    
-
     def __str__(self):
         return str(self.id)
+
 
 class Cart(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
@@ -50,7 +53,7 @@ class Orderplaced(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     customer=models.ForeignKey(Customer,on_delete=models.CASCADE,default=1)
     product=models.ForeignKey(Product,on_delete=models.CASCADE,default=1)
-    quantity=models.CharField(max_length=100)
+    quantity = models.CharField(max_length=100)
 
 
 

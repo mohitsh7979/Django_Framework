@@ -85,17 +85,23 @@
             <h4>Rs.{{a.price}}<small class="fw-light text-decoration-line-through">15999</small></h4> <br>
 
             <div class="color-option">
+              {% for c in color %}
+                  <div class="color" style="background-color: {{c}};"></div>
+              {% endfor %}
+            </div>
+            {% comment %} <div class="color-option">
               <div class="color"id="red-color"></div>
               <div class="color"id="black-color"></div>
               <div class="color"id="green-color"></div>
               <div class="color"id="yellow-color"></div>
               <div class="color"id="pink-color"></div>
-            </div>
+            </div> {% endcomment %}
             
           {% if user.is_authenticated %}
             <form action="/addcart/"class="d-inline" method="post">
               {% csrf_token %}
               <input type="hidden" name="prod_id" value="{{a.id}}" id="prod_id">
+              <input type="hidden" name="color" value="{{a.id}}" id="color">
               <button type="submit" class="btn btn-primary shadow px-5 py-2 cart-color">Add to Cart</button>
             </form>
             {% else %}

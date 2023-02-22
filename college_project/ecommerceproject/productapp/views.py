@@ -21,7 +21,8 @@ def product(request):
 def productview(request, id):
     a = Product.objects.get(id=id)
     context = {
-        'a': a
+        'a': a,
+        'color': a.color.split(',') if a.color else []
     }
     return render(request, 'productapp/productview.html', context)
 
@@ -31,7 +32,8 @@ def addcart(request):
         user = request.user
         product_id = request.POST['prod_id']
         prod = Product.objects.get(id=product_id)
-        cart = Cart(user=user, product=prod)
+        color = request.POST.get('color')
+        cart = Cart(user=user, product=prod) #send color as well.
         cart.save()
     return redirect('/showcart')
 
@@ -192,7 +194,11 @@ def kids(request, data=None):
 
     elif data == 'Jeans':
         kidsproduct = Product.objects.filter(catagory='k').filter(brand='j')
-    return render(request, 'productapp/kids.html', {'kidsproduct': kidsproduct})
+    return render(
+        request,
+        'productapp/kids.html',
+        {'kidsproduct': kidsproduct}
+    )
 
 
 def productdelete(request, id):

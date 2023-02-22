@@ -29,9 +29,9 @@ CITY_CHOICES=(
 
 class Customer(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    First_name=models.CharField(max_length=100)
+    First_name=models.CharField(max_length=100) # first_name
     last_name=models.CharField(max_length=100)
-    Email_id=models.EmailField()
+    Email_id=models.EmailField() #email_id
     address=models.CharField(max_length=500)
     land_mark=models.CharField(max_length=100)
     State=models.CharField(choices=STATE_CHOICES,max_length=100)

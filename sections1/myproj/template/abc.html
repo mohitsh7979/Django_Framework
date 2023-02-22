@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        color: palevioletred;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This is my h1 tag</h1>
+
+    <table border="2">
+      <tr>
+        <th>Name</th>
+        <th>Father Name</th>
+        <th>address</th>
+        <th>Village</th>
+        <th>Mobile No</th>
+      </tr>
+
+      {% for i in b %}
+        <tr>
+          <td>{{i.name}}</td>
+          <td>{{i.Father_name}}</td>
+          <td>{{i.address}}</td>
+          <td>{{i.village}}</td>
+          <td>{{i.mobile_no}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+
+    <select name="" id="">
+        <option value="">A</option>
+        <option value="">B</option>
+        <option value="">C</option>
+        <option value="">D</option>
+        <option value="">E</option>
+    </select>
+  </body>
+</html>

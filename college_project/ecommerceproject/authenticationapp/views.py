@@ -9,7 +9,7 @@ from django.contrib import messages
 # Create your views here.
 
 
-def Customer_details(request):
+def Customer_details(request): #functions name are camel case in lower laters.
 
     if request.method == "POST":
         a = customer(request.POST)
@@ -23,8 +23,11 @@ def Customer_details(request):
             city = a.cleaned_data['City']
             pin = a.cleaned_data['pin_code']
             mobile = a.cleaned_data['Mobile_no']
-            m = Customer(user=usr, First_name=first_name, last_name=last_name,
-                         address=address, State=state, City=city, pin_code=pin, Mobile_no=mobile)
+            m = Customer(
+                user=usr, First_name=first_name, last_name=last_name,
+                address=address, State=state, City=city,
+                pin_code=pin, Mobile_no=mobile
+            )
             m.save()
             return redirect("/")
     else:
