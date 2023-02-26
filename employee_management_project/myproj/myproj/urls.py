@@ -26,7 +26,9 @@ urlpatterns = [
     path('add/',views.farmer_detail),
     path('search/',views.farmer),
     path('auth/',include('authentication_app.urls')),
+    path('deal/',include('dealer_app.urls')),
+    path('dash/',include('dashboard.urls')),
 
     
 
-    ]
+]

@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block table %}
+
+
+ <div class="head">
+                    <h3>Farmer List</h3>
+                    <button> <a href="/add/"> Add Farmer </a> </button>
+                    {% comment %} <button>Delete All</button> {% endcomment %}
+
+                </div>
+                <hr>
+                <div class="able">
+                     <table id="customers">
+                    
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Mobile_No</th>
+                                <th scope="col">Whatsapp_No</th>
+                                <th scope="col">Village</th>
+                                <th scope="col">District</th>
+                                <th scope="col">Pin_code</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Modifiey</th>
+
+                            </tr>
+                            {% for i in all %}
+                            <tr>
+
+                                <td>{{ i.Name }}</td>
+                                <td>{{ i.Mobile_No }}</td>
+                                <td>{{ i.Whatsapp_No }}</td>
+                                <td>{{ i.Village }}</td>
+                                <td>{{ i.District }}</td>
+                                <td>{{ i.Pin_code }}</td>
+                                <td><a href="/delete/{{i.id}}/"><i class="fa-solid fa-trash m"></i></a></td>
+                                <td> <a href="/update/{{i.id}}/"><i class="fa-solid fa-pen-to-square m"></i></a></td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table> 
+                </div> 
+
+{% endblock table %}

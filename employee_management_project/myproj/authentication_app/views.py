@@ -52,3 +52,7 @@ def signup(request):
 
     b = Auth()
     return render(request, 'authentication/signup.html', {'b': b})
+
+def logouthandle(request):
+    logout(request)
+    return redirect("/")

@@ -16,7 +16,7 @@ class Register(UserCreationForm):
         attrs={'class': 'form-control'}))
     email = forms.CharField(required=True, widget=forms.EmailInput(
         attrs={'class': 'form-control'}))
-
+    
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
@@ -31,7 +31,7 @@ class customer(forms.ModelForm):
         fields = ["First_name", "last_name", "address",
                   "pin_code", "Mobile_no", "State", "City"]
         widgets = {
-            'First_name': forms.TextInput(attrs={'class': 'form-control'}),
+               'First_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'pin_code': forms.TextInput(attrs={'class': 'form-control'}),

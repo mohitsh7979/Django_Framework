@@ -7,11 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-
-
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
@@ -21,13 +16,6 @@
 
 
     <style>
-        * {
-
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-        }
-
         body {
 
             background-color: #084d2d;
@@ -41,10 +29,8 @@
 
             display: flex;
             justify-content: space-between;
-            height: 100%;
-            width: 100%;
 
-            border: 2px solid red;
+
             margin: 0px;
             padding: 0px;
         }
@@ -52,9 +38,9 @@
         #box-1 {
 
             width: 20%;
-            height: 100vh;
-            border: 2px solid black;
-            border-radius: 0px 0px;
+
+
+            border-radius: 0px 15px 15px 0px;
 
             margin-top: 2%;
             margin-bottom: 2%;
@@ -64,19 +50,23 @@
 
         #box-2 {
 
-            width: 80%;
-            height: 100vh;
-            border: 2px solid black;
+
+
+            width: 100%;
+
+
             margin-left: 20px;
             margin-top: 2%;
             margin-bottom: 2%;
+            margin-right: 15px;
         }
 
         .mybox {
 
             width: 100%;
             height: 100%;
-            border: 2px solid black;
+
+
         }
 
         #mybox-1 {
@@ -88,8 +78,10 @@
         #mybox-2 {
 
             height: 85vh;
+
             margin-top: 30px;
             background-color: white;
+            border-radius: 15px;
 
         }
 
@@ -97,60 +89,69 @@
 
             height: 30%;
             width: 100%;
-            border: 2px solid black;
+
         }
 
-        .dashborad {
 
-            height: 60%;
-            width: 100%;
-            border: 2px solid black;
-        }
 
         .logout {
 
             height: 10%;
             width: 100%;
-            border: 2px solid black;
+            margin-bottom: 20px;
         }
 
         .menu a {
 
             text-decoration: none;
             color: black;
-            font-size: 15px;
+            font-size: 18px;
             display: block;
 
         }
 
         .menu {
 
-            margin: 20px 20px;
-            padding: 15px 15px;
+            display: flex;
+
+            padding: 30px
         }
 
         .logo img {
 
             width: 100%;
             height: 100%;
-            margin: 5px;
-            padding: 5px;
+
         }
 
         .logout {
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+           font-size: 18px;
+           margin-top: 30px;
+           margin-left: 30px;
+           display: flex;
+        
+
 
         }
 
         .logout a {
             text-decoration: none;
             color: black;
+            padding: 15px;
+            border-radius: 10px;
+            height: 20px;
+            margin: 5px;
+            
+            background-color: lightgray;
         }
 
-        #mybox-1{
+        .logout a:hover{
+
+            background-color: #084d2d;
+        }
+
+        #mybox-1 {
 
             display: flex;
             justify-content: center;
@@ -181,6 +182,8 @@
 
         h3 {
             margin: auto;
+            font-size: 40px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 
         }
 
@@ -189,17 +192,64 @@
             margin: 5px;
             border: none;
             background-color: #084d2d;
-            padding: 5px;
+            padding: 13px;
+            width: 100px;
             border-radius: 5px;
             color: white;
+            cursor: pointer;
         }
 
         button a {
 
             text-decoration: none;
-            color: white;
-
+            color: white;   
         }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td,
+        #customers th {
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .m{
+            color:#084d2d;
+        }
+
+        .search{
+
+           border-radius: 5px;
+           padding: 10px;
+           outline: none;
+        }
+
+        .search:focus{
+
+            border: 2px solid #084d2d;
+        }
+
+        
     </style>
 </head>
 
@@ -211,76 +261,54 @@
     <div class="container">
         <div class="box" id="box-1">
             <div class="logo">
-                <img src="{% static 'Entorno-Green-Logo.png'%}" alt="">
+                <img src="{% static 'Entorno-Green-Logo.png' %}" alt="">
             </div>
             <div class="dashborad">
                 <div class="menu"><a href="">Dashobard</a></div>
-                <div class="menu"><a href="">Farmer Database</a></div>
-                <div class="menu"><a href="">Dealer Database</a></div>
+                <div class="menu"><a href="/">Farmer Database</a></div>
+                <div class="menu"><a href="/deal/dealer_detail/">Dealer Database</a></div>
+                <div class="menu"><a href="/deal/distributer_detail/">Distributer Database</a></div>
                 <div class="menu"><a href="">Employee Database</a></div>
-                 <div class="menu"><a href="">Resources</a></div>
+                <div class="menu"><a href="">Resources</a></div>
             </div>
+            <hr>
             <div class="logout">
-                <a href="">Log Out</a>
+
+                {% if user.is_authenticated %}
+
+                <p>Welcome {{request.user}}</p>
+                <a href="/auth/logout/">Log Out</a>
+
+                {% else %}
+                <a href="/auth/signup/">Sign Up</a>
+                <a href="/auth/login/">Log in</a>
+                {% endif %}
             </div>
         </div>
         <div class="box" id="box-2">
             <div class="mybox" id="mybox-1">
-                <input type="search" placeholder="Search Farmer,Dealer,Employee">
+                <form action="/dash/search/" method="post" style="display: flex; width: 90%;">
+                    {% csrf_token %}
+                <input type="search" placeholder="Search Farmer,Dealer,Employee" name="search" class="search">
                 <button>Search</button>
+                </form>
             </div>
+
             <div class="mybox" id="mybox-2">
-                <div class="head">
-                    <h3>Farmer List</h3>
-                    <button> <a href="/add/"> Add Farmer </a> </button>
-                    <button>Delete All</button>
-
-                </div>
-                <hr>
-                <div class="able">
-                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Mobile_No</th>
-                                <th scope="col">Whatsapp_No</th>
-                                <th scope="col">Village</th>
-                                <th scope="col">District</th>
-                                <th scope="col">Pin_code</th>
-                                <th scope="col">Delete</th>
-                                <th scope="col">Modifiey</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {% for i in all %}
-                            <tr>
-
-                                <td>{{ i.Name }}</td>
-                                <td>{{ i.Mobile_No }}</td>
-                                <td>{{ i.Whatsapp_No }}</td>
-                                <td>{{ i.Village }}</td>
-                                <td>{{ i.District }}</td>
-                                <td>{{ i.Pin_code }}</td>
-                                <td><a href="/delete/{{i.id}}/"><i class="fa-solid fa-trash m"></i></a></td>
-                                <td> <a href="/update/{{i.id}}/"><i class="fa-solid fa-pen-to-square m"></i></a></td>
-                            </tr>
-                            {% endfor %}
-
-                        </tbody>
-                    </table> 
-                </div>
+                
+                {% block table %}{% endblock table %}
             </div>
+            
+
         </div>
     </div>
-
-
-
+    
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-
+        
 </body>
 
 </html>

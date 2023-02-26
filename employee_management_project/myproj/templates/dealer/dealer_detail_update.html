@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+          <h3>Add Dealer Details</h3>
+          <hr />
+
+          <form action="" method="post" novalidate class="shadow p-5">
+            {% csrf_token %}
+
+            {% for i in a %}
+            <div class="mb-3">
+                Business name <input type="text" name="Business_Name" class="form-control" required id="id_Business_Name" value="{{i.Business_Name}}">  <br /> <br />
+              
+                Mobile no <input type="text" name="Mobile_No" class="form-control" required id="id_Mobile_No" value="{{i.Mobile_No}}">  <br /> <br />
+              
+                Whatsapp no <input type="text" name="Whatsapp_No" class="form-control" required id="id_Whatsapp_No" value="{{i.Whatsapp_No}}">  <br /> <br />
+              
+                Address <input type="text" name="Address" class="form-control" required id="id_Address" value="{{i.Address}}">  <br /> <br />
+              
+                District <input type="text" name="District" class="form-control" required id="id_District" value="{{i.District}}">  <br /> <br />
+              
+                Pin code <input type="text" name="Pin_code" class="form-control" required id="id_Pin_code" value="{{i.Pin_code}}">  <br /> <br />
+              
+                Gst no <input type="text" name="Gst_No" class="form-control" required id="id_Gst_No" value="{{i.Gst_No}}">  <br /> <br />
+              
+                Seed license <input type="text" name="Seed_License" class="form-control" required id="id_Seed_License" value="{{i.Seed_License}}">  <br /> <br />
+            </div>
+            {% endfor %}
+            <button class="btn btn-primary" style="background-color: #084d2d; width:100% ; padding:10px ;border: none;">Submit</button>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+

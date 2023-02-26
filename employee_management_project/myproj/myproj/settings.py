@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'farmer_app',
     'authentication_app',
+    'dealer_app',
+    'dashboard',
+   
 ]
 
 MIDDLEWARE = [

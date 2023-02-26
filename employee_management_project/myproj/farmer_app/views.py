@@ -14,7 +14,7 @@ def farmer(request):
     all = Farmer.objects.all()
 
 
-    return render(request, 'index.html', {'all': all})
+    return render(request, 'farmer/farmer_table.html', {'all': all})
 
 
 # def updatelist(request,id):
@@ -53,7 +53,7 @@ def update(request, id):
     # print("yes",b.Name)
     a = id
 
-    return render(request, 'updatelist.html', {'data': data, 'a': a,'b':b})
+    return render(request, 'farmer/updatelist.html', {'data': data, 'a': a,'b':b})
 
 def delete(request,id):
     delete_data=Farmer.objects.filter(id=id)
@@ -80,7 +80,7 @@ def farmer_detail(request):
 
     a = EmployeeForm()
 
-    return render(request, 'former_detail.html', { 'a': a})
+    return render(request, 'farmer/former_detail.html', { 'a': a})
 
 
 def search(request):

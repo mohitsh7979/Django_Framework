@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block table %}
+
+<div class="head">
+    <h3>Distributer List</h3>
+    <button><a href="/deal/distributer_form/">Add</a></button>
+    {% comment %} <button>Delete All</button> {% endcomment %}
+  </div>
+  <hr />
+  <div class="able">
+    <table id="customers">
+      <tr>
+        <th>Dealer</th>
+        <th>Business Name</th>
+        <th>Mobile_No</th>
+        <th>Whatsapp_No</th>
+        <th>Address</th>
+        <th>District</th>
+        <th>Pin_code</th>
+        <th>Gst No</th>
+        <th>Seed License</th>
+        <th>Delete</th>
+        <th>Modifiey</th>
+      </tr>
+      {% for i in b %}
+        <tr>
+          <td>{{i.user.Business_Name}}</td>
+          <td>{{ i.Business_Name }}</td>
+          <td>{{ i.Mobile_No }}</td>
+          <td>{{ i.Whatsapp_No }}</td>
+          <td>{{ i.Address }}</td>
+          <td>{{ i.District }}</td>
+          <td>{{ i.Pin_code }}</td>
+          <td>{{ i.Gst_No }}</td>
+          <td>{{ i.Seed_License }}</td>
+          <td>
+            <a href="/deal/distributer_delete/{{ i.id }}/"><i class="fa-solid fa-trash m"></i></a>
+          </td>
+          <td>
+            <a href="/deal/distributer_update/{{ i.id }}/"><i class="fa-solid fa-pen-to-square m"></i></a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  
+{% endblock table %}
