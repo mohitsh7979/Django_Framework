@@ -79,11 +79,11 @@
       <div class="box" id="box-1">
 
         <center><h1>Sign up</h1></center>
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             {% csrf_token %}
           <div class="input">
             {% for i in b %}
-              {{ i.label_tag }} {{ i }} {{ i.error|striptags }}
+              {{ i.label_tag }} {{ i }} {{ i.errors | striptags }}
             {% endfor %}
           </div>
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from dealer_app.models import *
 from farmer_app.models import *
 
@@ -20,6 +20,8 @@ def search(request):
         if len(c)!=0:
             return render(request,'farmer_search.html',{'c':c})
 
+        else:
+          return HttpResponse(" Data is not found ")
         
        
    

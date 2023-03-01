@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .forms import usercreationforms
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm ,SetPasswordForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -35,7 +36,7 @@ def loginform(request):
             if user is not None:
                 login(request, user)
 
-                return render(request, 'output.html')
+                messages.add_message(request,messages.SUCCESS,'your account has been created !!!')
 
     a = AuthenticationForm()
 
