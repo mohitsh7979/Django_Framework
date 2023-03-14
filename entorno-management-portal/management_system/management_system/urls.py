@@ -46,6 +46,8 @@ urlpatterns = [
     path('Admin/Dealer/Add', admin_views.ADD_DEALER, name="add_dealer"),
 
     path('deal/',include('dealer_app.urls')),
-    path('farm/',include('farmer_app.urls'))
+    path('farm/',include('farmer_app.urls')),
+    path('Admin/Employee/Add',admin_views.ADD_EMPLOYEE, name="add_employee"),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

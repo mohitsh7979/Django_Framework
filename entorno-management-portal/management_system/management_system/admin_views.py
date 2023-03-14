@@ -4,6 +4,7 @@ from farmer_app.forms import EmployeeForm
 from dealer_app.forms import DealerForm,DistributerForm
 from dealer_app.models import Dealer,Distributer
 
+
 @login_required(login_url='/')
 def HOME(request):
     return render(request,'admin/home.html')
@@ -22,3 +23,8 @@ def ADD_DISTRIBUTOR(request):
 def ADD_DEALER(request):
     a = DistributerForm()
     return render(request,'admin/add_dealer.html',{'a':a})
+
+
+@login_required(login_url='/')
+def ADD_EMPLOYEE(request):
+    return render(request,'Admin/add_employee.html')
