@@ -17,8 +17,21 @@ class CustomUser(AbstractUser):
 
 class Employee(models.Model):
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    address = models.TextField()
+    profile_pic = models.ImageField(upload_to='media/profile_pic')
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    mobile_no = models.IntegerField(null=True , blank=True)
     gender = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    username =models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    address = models.TextField()
+    pan_card = models.ImageField(upload_to='media/pan_card')
+    adhar_card = models.ImageField(upload_to='media/adhar_card')
+    cheque = models.ImageField(upload_to='media/bank_details')   
+    
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

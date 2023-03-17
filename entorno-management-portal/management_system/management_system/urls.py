@@ -49,5 +49,10 @@ urlpatterns = [
     path('farm/',include('farmer_app.urls')),
     path('Admin/Employee/Add',admin_views.ADD_EMPLOYEE, name="add_employee"),
 
+    path('Admin/Employee/View',admin_views.VIEW_EMPLOYEE, name="view_employee"),
+    path('Admin/Farmer/View',admin_views.VIEW_FARMER, name="view_farmer"),
+    path('Admin/Dealer/View',admin_views.VIEW_DEALER, name="view_dealer"),
+    path('Admin/Distributor/View',admin_views.VIEW_DISTRIBUTOR, name="view_distributor"),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
