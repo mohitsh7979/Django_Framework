@@ -14,7 +14,7 @@ def farmer(request):
     all = Farmer.objects.all()
 
 
-    return render(request, 'farmer/farmer_table.html', {'all': all})
+    return render(request, 'Admin/Farmer/Add', {'all': all})
 
 
 # def updatelist(request,id):
@@ -42,7 +42,7 @@ def updatelist(request, id):
                 i.Pin_code = data.cleaned_data['Pin_code']
                 i.save()
 
-    return redirect("/")
+    return redirect("add_farmer.html")
 
 
 def update(request, id):

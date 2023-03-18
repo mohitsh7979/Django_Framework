@@ -56,12 +56,12 @@ def PROFILE(request):
 
 def PROFILE_UPDATE(request):
     if request.method == "POST":
-        profile_pic == request.FILES.get('profile_pic')
-        first_name == request.POST.get('first_name')
-        last_name == request.POST.get('last_name')
+        profile_pic =request.FILES.get('profile_pic')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         # email == request.POST.get('email')
         # username == request.POST.get('username')
-        password == request.POST.get('password')
+        password = request.POST.get('password')
 
     try:
         customuser = CustomUser.objects.get(id=request.user.id)
