@@ -28,7 +28,6 @@ def ADD_DEALER(request):
     return render(request,'admin/add_dealer.html',{'a':a})
 
 
-@login_required(login_url='/')
 def ADD_EMPLOYEE(request):
     if request.method == "POST":
         profile_pic = request.FILES.get('profile_pic')

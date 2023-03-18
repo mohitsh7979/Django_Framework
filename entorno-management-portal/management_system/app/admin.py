@@ -9,3 +9,4 @@ class UserModel(UserAdmin):
 
 admin.site.register(CustomUser,UserModel)
 admin.site.register(Employee)
+admin.site.register(Employee_leave)
