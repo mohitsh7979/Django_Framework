@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'farmer_app',
     'dealer_app',
+    'active_link',
 ]
 
 MIDDLEWARE = [

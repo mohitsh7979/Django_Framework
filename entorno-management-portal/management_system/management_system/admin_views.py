@@ -63,7 +63,19 @@ def ADD_EMPLOYEE(request):
         employee = Employee(
             admin = user,
             address=address,
-            gender =gender
+            profile_pic = profile_pic,
+            first_name =  first_name,
+            last_name = last_name,
+            mobile_no = mobile_no,
+            gender = gender,
+            designation =  designation,
+            email =  email,
+            username = username ,
+            password = password,
+            pan_card =  pan_card,
+            adhar_card = adhar_card ,
+            cheque =  cheque ,
+    
         )
         employee.save()
         messages.success(request,'Employee is succesfully added!')
