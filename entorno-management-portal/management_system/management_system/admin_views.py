@@ -81,4 +81,8 @@ def VIEW_DEALER(request):
 
 def VIEW_DISTRIBUTOR(request):
     return render(request,'Admin/view_distributor.html')
+
+@login_required(login_url='/')
+def RESOURCES(request):
+    return render(request,'admin/resources.html')
     
