@@ -5,6 +5,7 @@ from farmer_app import views
 urlpatterns = [
  
     path('farmer_form/',views.farmer_detail),
+    path('farmer_detail/',views.farmer),
    
 
 ]

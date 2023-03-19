@@ -1,7 +1,7 @@
 from django import forms
-from .models import Distributer
+from .models import Dealer
 
-class DealerForm(forms.Form):
+class DistributerForm(forms.Form):
     Business_Name=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     Mobile_No=forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
     Whatsapp_No=forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -12,16 +12,16 @@ class DealerForm(forms.Form):
     Seed_License=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
 
-class DistributerForm(forms.ModelForm):
+class DealerForm(forms.ModelForm):
 
     class Meta:
-        model=Distributer
-        print("this is id ",Distributer.id)
+        model=Dealer
+        print("this is id ",Dealer.id)
        
-        fields=["user","Business_Name","Mobile_No","Whatsapp_No","Address","District","Pin_code","Gst_No","Seed_License"]
+        fields=["authorized_distributor","Business_Name","Mobile_No","Whatsapp_No","Address","District","Pin_code","Gst_No","Seed_License"]
         widgets={
 
-            'user':forms.Select(attrs={'class':'form-select','aria-label':'Default select example'}),
+            'authorized_distributor':forms.Select(attrs={'class':'form-select','aria-label':'Default select example'}),
             'Business_Name':forms.TextInput(attrs={'class':'form-control'}),
             'Mobile_No':forms.TextInput(attrs={'class':'form-control'}),
             'Whatsapp_No':forms.TextInput(attrs={'class':'form-control'}),

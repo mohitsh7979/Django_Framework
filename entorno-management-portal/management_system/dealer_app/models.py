@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Dealer(models.Model):
+class Distributer(models.Model):
     Business_Name=models.CharField(max_length=50)
     Mobile_No=models.IntegerField(null=True,blank=True)
     Whatsapp_No=models.IntegerField(null=True , blank=True)
@@ -15,8 +15,8 @@ class Dealer(models.Model):
     def __str__(self):
         return str(self.Business_Name)
 
-class Distributer(models.Model):
-    user=models.ForeignKey(Dealer,on_delete=models.CASCADE)
+class Dealer(models.Model):
+    authorized_distributor=models.ForeignKey(Distributer,on_delete=models.CASCADE)
     Business_Name=models.CharField(max_length=50)
     Mobile_No=models.IntegerField(null=True,blank=True)
     Whatsapp_No=models.IntegerField(null=True , blank=True)

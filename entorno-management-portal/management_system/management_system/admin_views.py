@@ -68,21 +68,24 @@ def ADD_EMPLOYEE(request):
         employee.save()
         messages.success(request,'Employee is succesfully added!')
         return redirect('add_employee')
-    return render(request,'Admin/add_employee.html')
+    return render(request,'admin/add_employee.html')
 
 def VIEW_EMPLOYEE(request):
-    return render(request,'Admin/view_employee.html')
+    return render(request,'admin/view_employee.html')
 
 def VIEW_FARMER(request):   
-    return render(request,'Admin/view_farmer.html')
+    return render(request,'admin/view_farmer.html')
 
 def VIEW_DEALER(request):
-    return render(request,'Admin/view_dealer.html')
+    return render(request,'admin/view_dealer.html')
 
 def VIEW_DISTRIBUTOR(request):
-    return render(request,'Admin/view_distributor.html')
+    return render(request,'admin/view_distributor.html')
 
 @login_required(login_url='/')
 def RESOURCES(request):
     return render(request,'admin/resources.html')
     
+
+
+

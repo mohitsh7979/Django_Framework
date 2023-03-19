@@ -8,7 +8,7 @@ from .models import Dealer, Distributer
 def dealer(request):
 
     b = Dealer.objects.all()
-    return render(request, 'dealer/dealer_table.html', {'b': b})
+    return render(request, 'admin/view_dealer.html', {'b': b})
 
 
 def dealer_form(request):
@@ -18,6 +18,7 @@ def dealer_form(request):
         print(a)
 
         if a.is_valid():
+            authorized_Distributor = a.cleaned_data["user"]
             Bname = a.cleaned_data["Business_Name"]
             MNo = a.cleaned_data["Mobile_No"]
             WNo = a.cleaned_data["Whatsapp_No"]
@@ -26,7 +27,7 @@ def dealer_form(request):
             Pc = a.cleaned_data["Pin_code"]
             GNo = a.cleaned_data["Gst_No"]
             SL = a.cleaned_data["Seed_License"]
-            Dealer(Business_Name=Bname, Mobile_No=MNo, Whatsapp_No=WNo,
+            Dealer(authorized_distributor =authorized_Distributor , Business_Name=Bname, Mobile_No=MNo, Whatsapp_No=WNo,
                    Address=Ad, District=Dis, Pin_code=Pc, Gst_No=GNo, Seed_License=SL).save()
             return redirect("/deal/dealer_detail/")
     else:
@@ -70,7 +71,6 @@ def Distributers(request):
         print(a)
 
         if a.is_valid():
-            usr = a.cleaned_data["user"]
             Bname = a.cleaned_data["Business_Name"]
             MNo = a.cleaned_data["Mobile_No"]
             WNo = a.cleaned_data["Whatsapp_No"]
@@ -79,7 +79,7 @@ def Distributers(request):
             Pc = a.cleaned_data["Pin_code"]
             GNo = a.cleaned_data["Gst_No"]
             SL = a.cleaned_data["Seed_License"]
-            Distributer(user=usr, Business_Name=Bname, Mobile_No=MNo, Whatsapp_No=WNo,
+            Distributer(Business_Name=Bname, Mobile_No=MNo, Whatsapp_No=WNo,
                         Address=Ad, District=Dis, Pin_code=Pc, Gst_No=GNo, Seed_License=SL).save()
             return redirect("/deal/distributer_detail/")
 

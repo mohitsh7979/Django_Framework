@@ -14,7 +14,7 @@ def farmer(request):
     all = Farmer.objects.all()
 
 
-    return render(request, 'Admin/Farmer/Add', {'all': all})
+    return render(request, 'admin/view_farmer.html', {'all': all})
 
 
 # def updatelist(request,id):
