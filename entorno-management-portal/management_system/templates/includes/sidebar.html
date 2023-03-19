@@ -1,3 +1,4 @@
+{% load static %}
 {% load active_link_tags %}
 <div class="sidebar" id="sidebar">
 
@@ -14,12 +15,12 @@
                                        {% active_link 'add_distributor' 'active' %} {% active_link 'view_distributor' 'active' %}">
                         <a href="#"><i class="fas fa-user-graduate"></i> <span> Database </span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="{% url 'add_farmer' %}">Add Farmer</a></li>
-                           <li><a href="{% url 'view_farmer' %}">View Farmer List</a></li>
-                           <li><a href="{% url 'add_dealer' %}">Add Dealer</a></li>
-                           <li><a href="{% url 'view_dealer' %}">View Dealer List</a></li>
-                           <li><a href="{% url 'add_distributor' %}">Add Distributor</a></li>
-                           <li><a href="{% url 'view_distributor' %}">View Distributor List</a></li>
+                           <li class="{% active_link 'add_farmer' 'active' %}"><a href="{% url 'add_farmer' %}">Add Farmer</a></li>
+                           <li class="{% active_link 'view_farmer' 'active' %}"><a href="{% url 'view_farmer' %}">View Farmer List</a></li>
+                           <li class="{% active_link 'add_dealer' 'active' %}"><a href="{% url 'add_dealer' %}">Add Dealer</a></li>
+                           <li class="{% active_link 'view_dealer' 'active' %}"><a href="{% url 'view_dealer' %}">View Dealer List</a></li>
+                           <li class="{% active_link 'add_distributor' 'active' %}"><a href="{% url 'add_distributor' %}">Add Distributor</a></li>
+                           <li class="{% active_link 'view_distributor' 'active' %}"><a href="{% url 'view_distributor' %}">View Distributor List</a></li>
                            
 
                         </ul>
@@ -27,8 +28,8 @@
                      <li class="submenu {% active_link 'add_employee' 'active' %} {% active_link 'view_employee' 'active' %}">
                         <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Employee Database</span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="{% url 'add_employee' %}">Employee Add</a></li>
-                           <li><a href="{% url 'view_employee' %}">Employee View</a></li>
+                           <li class="{% active_link 'add_employee' 'active' %}"><a href="{% url 'add_employee' %}">Employee Add</a></li>
+                           <li class="{% active_link 'view_employee' 'active' %}"><a href="{% url 'view_employee' %}">Employee View</a></li>
                         </ul>
                      </li>
 
