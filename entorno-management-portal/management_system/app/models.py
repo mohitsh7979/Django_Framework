@@ -30,8 +30,6 @@ class Employee(models.Model):
     pan_card = models.ImageField(upload_to='media/pan_card')
     adhar_card = models.ImageField(upload_to='media/adhar_card')
     cheque = models.ImageField(upload_to='media/bank_details')   
-    
-    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
