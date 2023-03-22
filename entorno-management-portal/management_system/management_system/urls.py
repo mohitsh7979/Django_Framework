@@ -55,7 +55,9 @@ urlpatterns = [
     path('Admin/Dealer/View',admin_views.VIEW_DEALER, name="view_dealer"),
     path('Admin/Distributor/View',admin_views.VIEW_DISTRIBUTOR, name="view_distributor"),
     path('Admin/Resources', admin_views.RESOURCES, name='resources'),
-
+    
+       
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

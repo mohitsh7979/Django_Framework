@@ -6,11 +6,25 @@ from dealer_app.forms import DealerForm,DistributerForm
 from dealer_app.models import Dealer,Distributer
 from app.models import CustomUser
 from app.models import Employee
-
+from farmer_app.models import Farmer
 
 @login_required(login_url='/')
 def HOME(request):
-    return render(request,'admin/home.html')
+    farmer_count=Farmer.objects.all().count()
+    dealer_count=Dealer.objects.all().count()
+    distributor_count=Distributer.objects.all().count()
+    employee_count=Employee.objects.all().count()
+
+
+    context ={
+        'farmer_count':farmer_count,
+        'dealer_count':dealer_count,
+        'distributor_count':distributor_count,
+        'employee_count':employee_count,
+    }
+
+    return render(request,'admin/home.html',context)
+
 
 @login_required(login_url='/')
 def ADD_FARMER(request):
