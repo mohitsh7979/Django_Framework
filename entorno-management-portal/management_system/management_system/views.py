@@ -26,9 +26,9 @@ def doLogin(request):
             if user_type == '1':
                 return redirect('admin_home')
             elif user_type == '2':
-                return HttpResponse("Welcome to Entorno Greens Manager Panel")
+                return redirect('manager_home')
             elif user_type == '3':
-                return HttpResponse("Welcome to Entorno Greens Employee Panel")
+                return redirect('employee_home')
             else:
                 # message
                 messages.error(request, 'Email and Password are invalid!')

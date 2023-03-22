@@ -57,6 +57,9 @@ urlpatterns = [
     path('Admin/Resources', admin_views.RESOURCES, name='resources'),
     
        
+    #employee panel
+
+    path('Employee/Home',employee_views.HOME, name='employee_home')
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
