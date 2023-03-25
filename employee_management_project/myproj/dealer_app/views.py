@@ -119,6 +119,7 @@ def Distributer_update_data(request, id):
 
     data1=DistributerForm()
     a=data1["user"]
+    print(a)
 
     return render(request, 'dealer/distributer_detail_update.html', {'a': a})
 
