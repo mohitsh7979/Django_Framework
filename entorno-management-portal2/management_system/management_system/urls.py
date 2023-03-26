@@ -40,17 +40,18 @@ urlpatterns = [
     # Admin Panel
 
     path('Admin/Home', admin_views.HOME, name='admin_home'),
-    path('Admin/Farmer/Add', admin_views.ADD_FARMER, name="add_farmer"),
-    path('Admin/Distributor/Add',
-         admin_views.ADD_DISTRIBUTOR, name="add_distributor"),
-    path('Admin/Dealer/Add', admin_views.ADD_DEALER, name="add_dealer"),
+    # path('Admin/Farmer/Add', admin_views.ADD_FARMER, name="add_farmer"),
+    # path('Admin/Distributor/Add',
+    #      admin_views.ADD_DISTRIBUTOR, name="add_distributor"),
+    # path('Admin/Dealer/Add', admin_views.ADD_DEALER, name="add_dealer"),
 
     path('Admin/deal/',include('dealer_app.urls')),
     path('Admin/farm/',include('farmer_app.urls')),
+    path('Admin/emp/',include('employee_app.urls')),
     
-    path('Admin/Employee/Add',admin_views.ADD_EMPLOYEE, name="add_employee"),
+    # path('Admin/Employee/Add',admin_views.ADD_EMPLOYEE, name="add_employee"),
 
-    path('Admin/Employee/View',admin_views.VIEW_EMPLOYEE, name="view_employee"),
+    # path('Admin/Employee/View',admin_views.VIEW_EMPLOYEE, name="view_employee"),
     path('Admin/Farmer/View',admin_views.VIEW_FARMER, name="view_farmer"),
     path('Admin/Dealer/View',admin_views.VIEW_DEALER, name="view_dealer"),
     path('Admin/Distributor/View',admin_views.VIEW_DISTRIBUTOR, name="view_distributor"),

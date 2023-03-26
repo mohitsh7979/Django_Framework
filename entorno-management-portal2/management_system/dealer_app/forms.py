@@ -21,7 +21,7 @@ class DealerForm(forms.ModelForm):
         fields=["authorized_distributor","Business_Name","Mobile_No","Whatsapp_No","Address","District","Pin_code","Gst_No","Seed_License"]
         widgets={
 
-            'authorized_distributor':forms.Select(attrs={'class':'form-select'}),
+            'authorized_distributor':forms.Select(attrs={'class':'form-control'}),
             'Business_Name':forms.TextInput(attrs={'class':'form-control'}),
             'Mobile_No':forms.TextInput(attrs={'class':'form-control'}),
             'Whatsapp_No':forms.TextInput(attrs={'class':'form-control'}),
