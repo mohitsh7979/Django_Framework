@@ -94,7 +94,7 @@ def ADD_EMPLOYEE(request):
         employee.save()
         messages.success(request,'Employee is succesfully added!')
         return redirect('add_employee')
-    return render(request,'Admin/add_employee.html')
+    return render(request,'admin/add_employee.html')
 
 def VIEW_EMPLOYEE(request):
     return render(request,'admin/view_employee.html')
