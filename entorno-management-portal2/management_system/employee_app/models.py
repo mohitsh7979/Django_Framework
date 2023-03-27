@@ -7,22 +7,22 @@ class Employee_model(models.Model):
 
     GENDER = (
 
-        ('m', 'male'),
-        ('f', 'female'),
-        ('o', 'other'),
+        ('male', 'male'),
+        ('female', 'female'),
+        ('other', 'other'),
     )
 
     DEEIGNATION = (
 
-        ('s', 'Sales Officer'),
-        ('t', 'Territory Exceutive'),
-        ('f', 'Field Assistant'),
-        ('g', 'General Manager'),
-        ('h', 'HR Manager'),
-        ('o', 'Office Management Staff'),
-        ('c', 'CA'),
-        ('d', 'Director'),
-        ('D', 'Desk Office Assitant'),
+        ('Sales Officer', 'Sales Officer'),
+        ('Territory Exceutive', 'Territory Exceutive'),
+        ('Field Assistant', 'Field Assistant'),
+        ('General Manager', 'General Manager'),
+        ('HR Manager', 'HR Manager'),
+        ('Office Management Staff', 'Office Management Staff'),
+        ('CA', 'CA'),
+        ('Director', 'Director'),
+        ('Desk Office Assitant', 'Desk Office Assitant'),
 
 
     )
@@ -40,5 +40,3 @@ class Employee_model(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.admin.username
