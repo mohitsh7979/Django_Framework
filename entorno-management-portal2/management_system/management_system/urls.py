@@ -38,8 +38,7 @@ urlpatterns = [
 
     # profile update
     path('Profile', views.PROFILE, name='profile'),
-    path('Profile/update', views.PROFILE_UPDATE,
-         name='profile_update'),
+    path('Profile/update', views.PROFILE_UPDATE, name='profile_update'),
 
 
     # Admin Panel addd
