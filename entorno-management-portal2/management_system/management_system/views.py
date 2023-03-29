@@ -81,3 +81,8 @@ def PROFILE_UPDATE(request):
     return render(request, 'profile.html')
 
 
+def signup(request):
+
+    return render(request,'signup.html')
+
+

@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
 
-from .import views, admin_views, employee_views, manager_views
+from management_system import views, admin_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,36 +31,46 @@ urlpatterns = [
     # logout path
     path('doLogout', views.doLogout, name='logout'),
 
+
+    # signup
+
+    path('signup/',include('authentication_app.urls')),
+
     # profile update
     path('Profile', views.PROFILE, name='profile'),
     path('Profile/update', views.PROFILE_UPDATE,
          name='profile_update'),
 
 
-    # Admin Panel
+    # Admin Panel addd
 
     path('Admin/Home', admin_views.HOME, name='admin_home'),
     path('Admin/Farmer/Add', admin_views.ADD_FARMER, name="add_farmer"),
-    path('Admin/Distributor/Add',
-         admin_views.ADD_DISTRIBUTOR, name="add_distributor"),
+    path('Admin/Distributor/Add',admin_views.ADD_DISTRIBUTOR, name="add_distributor"),
     path('Admin/Dealer/Add', admin_views.ADD_DEALER, name="add_dealer"),
 
-    path('Admin/deal/',include('dealer_app.urls')),
-    path('Admin/farm/',include('farmer_app.urls')),
-    path('Admin/emp/',include('employee_app.urls')),
-    
-    path('Admin/Employee/Add',admin_views.ADD_EMPLOYEE, name="add_employee"),
 
     path('Admin/Employee/View',admin_views.VIEW_EMPLOYEE, name="view_employee"),
     path('Admin/Farmer/View',admin_views.VIEW_FARMER, name="view_farmer"),
     path('Admin/Dealer/View',admin_views.VIEW_DEALER, name="view_dealer"),
     path('Admin/Distributor/View',admin_views.VIEW_DISTRIBUTOR, name="view_distributor"),
     path('Admin/Resources', admin_views.RESOURCES, name='resources'),
+
+
+
+    # main dealer distributer farmer url
+    path('Admin/deal/',include('dealer_app.urls')),
+    path('Admin/farm/',include('farmer_app.urls')),
+    path('Admin/emp/',include('employee_app.urls')),
+    
+   
+
+   
     
        
     #employee panel
 
-    path('Employee/Home',employee_views.HOME, name='employee_home'),
+
     path('search/',admin_views.search),
 
 

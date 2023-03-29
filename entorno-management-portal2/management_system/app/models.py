@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class CustomUser(AbstractUser):
+    
     USER = (
         (1, 'admin'),
         (2, 'manager'),
@@ -48,5 +49,12 @@ class Employee_leave(models.Model):
 
     def __str__(self):
         return self.emp_id.admin.first_name+ self.emp_id.admin.last_name
+    
+
+
+class Resourse(models.Model):
+    price_list = models.FileField(upload_to='static/files')
+    catalogue = models.FileField(upload_to='static/files')
+    hybrid_vegitable_price = models.FileField(upload_to='static/files')
 
 

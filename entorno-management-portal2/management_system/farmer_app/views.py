@@ -6,19 +6,25 @@ from .forms import EmployeeForm
 
 
 def farmer(request):
-    if request.method=="POST":
+
+      if request.method=="POST":
         a=request.POST['search']
         all=Farmer.objects.filter(Name=a)
         return render(request,'index.html',{'all':all})
     
-    all = Farmer.objects.all()
+      all = Farmer.objects.all()
 
 
-    return render(request, 'Admin/Farmer/Add', {'all': all})
+      return render(request, 'Admin/Farmer/Add', {'all': all})
+    
+
+    
 
 
 def update(request, id):
-    if request.method == "POST":
+    
+      
+      if request.method == "POST":
         data = EmployeeForm(data=request.POST)
         updatedata = Farmer.objects.filter(id=id)
         print(updatedata)
@@ -33,22 +39,30 @@ def update(request, id):
                 i.save()
 
             return redirect("/Admin/Farmer/View")
-    else:
+      else:
 
         a = Farmer.objects.filter(id=id)
 
 
-    return render(request,'admin/update_farmer.html',{'a':a})
+      return render(request,'admin/update_farmer.html',{'a':a})
+    
+
 
 
 def delete(request,id):
-    delete_data=Farmer.objects.filter(id=id)
-    delete_data.delete()
-    return redirect("/Admin/Farmer/View")
+
+  
+      delete_data=Farmer.objects.filter(id=id)
+      delete_data.delete()
+      return redirect("/Admin/Farmer/View")
+    
+
 
 def farmer_detail(request):
 
-    if request.method == "POST":
+ 
+
+     if request.method == "POST":
         a = EmployeeForm(data=request.POST)
 
         if a.is_valid():
@@ -64,17 +78,14 @@ def farmer_detail(request):
 
             return redirect("/Admin/Farmer/View")
 
-    a = EmployeeForm()
+     farmer = EmployeeForm()
+     return render(request,'admin/add_farmer.html',{'farmer':farmer})
+    
+  
 
-    return render(request, 'farmer/former_detail.html', { 'a': a})
 
 
-def search(request):
-    if request.method=="POST":
-        a=request.POST['search']
-        print(a)
-        b=Farmer.objects.filter(Name=a)
-        print(b)
+
 
 
 

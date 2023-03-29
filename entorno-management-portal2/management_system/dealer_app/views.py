@@ -12,6 +12,7 @@ def dealer(request):
 
 
 def dealer_form(request):
+
     if request.method == "POST":
         a = DealerForm(data=request.POST)
 
@@ -40,12 +41,14 @@ def dealer_form(request):
 
 
 def delete_data(request, id):
+
     delete_data = Dealer.objects.filter(id=id)
     delete_data.delete()
     return redirect("/Admin/Dealer/View")
 
 
 def update_data(request, id):
+
     if request.method == "POST":
         form_data = DealerForm(request.POST)
         data = Dealer.objects.filter(id=id)
@@ -66,12 +69,13 @@ def update_data(request, id):
     data = Dealer.objects.filter(id=id)
     form_data = DealerForm()
     a_user = form_data["authorized_distributor"]
-    # print(a_user)
+   # print(a_user)
 
-    return render(request, 'admin/update_dealer.html', {'a': data , 'a_user':a_user})
+    return render(request, 'admin/update_dealer.html', {'a': data, 'a_user': a_user})
 
 
 def Distributers(request):
+
     if request.method == "POST":
         a = DistributerForm(data=request.POST)
 
@@ -96,17 +100,20 @@ def Distributers(request):
 
 
 def distributer_object(request):
+
     b = Distributer.objects.all()
     return render(request, 'dealer/distributer_table.html', {'b': b})
 
 
 def Distributer_delete_data(request, id):
+
     delete_data = Distributer.objects.filter(id=id)
     delete_data.delete()
     return redirect("/Admin/Distributor/View")
 
 
 def Distributer_update_data(request, id):
+
     if request.method == "POST":
         form_data = DistributerForm(request.POST)
         data = Distributer.objects.filter(id=id)
@@ -126,6 +133,6 @@ def Distributer_update_data(request, id):
     data = Distributer.objects.filter(id=id)
 
     data1 = DistributerForm()
-    # a = data1["user"]
+   # a = data1["user"]
 
     return render(request, 'admin/update_distributer.html', {'data': data})
